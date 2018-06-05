@@ -17,6 +17,7 @@ import { Overlay } from './components/Overlay/Overlay';
 import { Panel } from './components/Panel/Panel';
 import { Progress } from './components/Progress/Progress';
 import { Labels } from './components/Labels/Labels'; 
+import { Link } from './components/Link/Link'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     render(
@@ -75,6 +76,7 @@ class ExamplePage extends React.Component<any, any> {
                         </li>
                     </Navbar>
                 </NavbarSticky>
+                <h3><Link href="#" type="muted">Test Heading</Link></h3>
                 <Labels content="Testing this Label" color="warning" />
                 <Alert width="1-2" content="Test" color="primary" isClosable />
                 <Badge count={this.badgeCount} />
