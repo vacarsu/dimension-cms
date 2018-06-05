@@ -1,21 +1,24 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": false,
-    "sourceMap": true,
-    "module": "es6",
-    "target": "es5",
-    "jsx": "react",
-    "allowJs": true,
-    "typeRoots": [
-      "src/types"
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "module": "es6",
+        "target": "es5",
+        "jsx": "react",
+        "allowJs": true,
+        "typeRoots": [
+            "src/types"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "**/*.ts",
+        "**/*.tsx"
+    ],
+    "files": [
+        "client/types/intrinsic-elements.d.ts"
     ]
-  },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-  ]
 }

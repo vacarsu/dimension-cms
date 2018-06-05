@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { colorClass } from '../../utils/color-class';
 
 declare interface props {
     label: string;
@@ -13,13 +14,19 @@ export class Button extends React.Component<props, any> {
             this.isLink ?
             <a 
                 href={this.props.href}
-                className={`uk-button uk-button-${this.setupColor()} uk-button-${this.setupSize()}`}
+                className={`
+                    uk-button uk-button-${colorClass(this.props.color)}
+                    uk-button-${this.setupSize()}
+                `}
             >
                 {this.props.label}
             </a>
             :
             <button 
-                className={`uk-button uk-button-${this.setupColor()} uk-button-${this.setupSize()}`}
+                className={`
+                    uk-button uk-button-${colorClass(this.props.color)}
+                    uk-button-${this.setupSize()}
+                `}
             >
                 {this.props.label}
             </button>
@@ -38,26 +45,6 @@ export class Button extends React.Component<props, any> {
                 return 'large';
             default:
                 return 'small';
-        }
-    }
-
-    private setupColor(): string {
-        switch(this.props.color) {
-            case 'default':
-                return 'default';
-            case 'primary':
-                return 'primary';
-            case 'secondary':
-                return 'secondary';
-            case 'danger':
-                return 'danger';
-            case 'text':
-                return 'text';
-            case 'link':
-                return 'link';
-            default:
-                return 'default';
-                
         }
     }
 }
