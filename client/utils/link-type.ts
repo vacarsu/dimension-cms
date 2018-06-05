@@ -11,7 +11,7 @@ export function linkType(type: string): string {
       case 'reset':
           return 'reset';
       default:
-          return 'default;
+          return 'default';
           
   }
 }
