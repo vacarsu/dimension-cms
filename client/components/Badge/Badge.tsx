@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { colorClass } from '../../utils/color-class';
 
-declare interface props {
+declare interface props extends BaseProps {
     count: number;
 }
 

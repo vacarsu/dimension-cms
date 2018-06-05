@@ -1,11 +1,13 @@
 import * as React from 'react';
+import { alignClass } from '../../utils/align-class';
+import { widthClass } from '../../utils/width-class';
 
 declare interface AccordianItem {
     title: string;
     content: string;
 }
 
-declare interface props {
+declare interface props extends BaseProps {
     items: AccordianItem[];
     multiple?: boolean;
     collapsible?: boolean;
@@ -14,10 +16,12 @@ declare interface props {
 export class Accordion extends React.Component<props, any> {
     render() {
         return (
-            <ul data-uk-accordion={`
-                multiple: ${this.isMultipleDropdowns()};
-                collapsible: ${this.isCollapsible()}
-            `}>
+            <ul className={`${widthClass(this.props.width)}  ${alignClass(this.props.align)}`}
+                data-uk-accordion={`
+                    multiple: ${this.isMultipleDropdowns()};
+                    collapsible: ${this.isCollapsible()}
+                `}
+            >
                 {this.renderItems()}
             </ul>
         );

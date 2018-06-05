@@ -19,6 +19,6 @@
         "**/*.tsx"
     ],
     "files": [
-        "client/types/intrinsic-elements.d.ts"
+        "client/types/base-props.d.ts"
     ]
 }

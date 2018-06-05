@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { colorClass } from '../../utils/color-class';
+import { alignClass } from '../../utils/align-class';
 
-declare interface props {
+declare interface props extends BaseProps {
     label: string;
     color?: string;
     size?: string;
@@ -17,6 +18,7 @@ export class Button extends React.Component<props, any> {
                 className={`
                     uk-button uk-button-${colorClass(this.props.color)}
                     uk-button-${this.setupSize()}
+                    ${alignClass(this.props.align)}
                 `}
             >
                 {this.props.label}

@@ -22,10 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
     render(
         (
             <div>
-                <Alert content="Test" color="primary" isClosable />
+                <Alert width="1-2" content="Test" color="primary" isClosable />
                 <Badge count={99} />
                 <Breadcrumb items={breadcrumbItems} />
                 <Accordion
+                    width="1-2"
                     items={accordionItems}
                 />
             </div>
