@@ -18,6 +18,7 @@ import { Panel } from './components/Panel/Panel';
 import { Progress } from './components/Progress/Progress';
 import { Labels } from './components/Labels/Labels'; 
 import { Link } from './components/Link/Link'; 
+import { Container } from "./components/Container/Container";
 
 document.addEventListener('DOMContentLoaded', () => {
     render(
@@ -77,7 +78,9 @@ class ExamplePage extends React.Component<any, any> {
                     </Navbar>
                 </NavbarSticky>
                 <h3><Link href="#" type="muted">Test Heading</Link></h3>
-                <Labels content="Testing this Label" color="warning" />
+                <Container size="large">
+                    <Labels content="Testing this Label" color="warning" />
+                </Container>
                 <Alert width="1-2" content="Test" color="primary" isClosable />
                 <Badge count={this.badgeCount} />
                 <Breadcrumb items={this.breadcrumbItems} />
