@@ -18,7 +18,10 @@ import { Panel } from './components/Panel/Panel';
 import { Progress } from './components/Progress/Progress';
 import { Labels } from './components/Labels/Labels'; 
 import { Link } from './components/Link/Link'; 
-import { Container } from "./components/Container/Container";
+import { Container } from './components/Container/Container';
+import { Section } from './components/Section/Section';
+import { Light } from './components/Light/Light';
+import { Dark } from './components/Dark/Dark';
 
 document.addEventListener('DOMContentLoaded', () => {
     render(
@@ -78,11 +81,17 @@ class ExamplePage extends React.Component<any, any> {
                     </Navbar>
                 </NavbarSticky>
                 <h3><Link href="#" type="muted">Test Heading</Link></h3>
-                <Container size="large">
-                    <Labels content="Testing this Label" color="warning" />
-                </Container>
-                <Alert width="1-2" content="Test" color="primary" isClosable />
-                <Badge count={this.badgeCount} />
+                <Section preserve="yes" style="muted" inverse="light" >
+                    <Container size="large">
+                        <Labels content="Testing this Label" color="warning" />
+                    </Container>
+                </Section>
+                <Dark>
+                    <Alert width="1-2" content="Test" color="primary" isClosable />
+                </Dark>
+                <Light>
+                    <Badge count={this.badgeCount} />
+                </Light>
                 <Breadcrumb items={this.breadcrumbItems} />
                 <div>Accordion and Panel in a Flex container.</div>
                 <Flex alignment="center middle" direction="row">
