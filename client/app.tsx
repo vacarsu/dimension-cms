@@ -5,6 +5,7 @@ import { Article } from './components/Article/Article';
 import { Accordion } from './components/Accordion/Accordion';
 import { Badge } from './components/Badge/Badge';
 import { Breadcrumb } from './components/Breadcrumb/Breadcrumb'; 
+import { Labels } from './components/Labels/Labels'; 
 
 const accordionItems = [
     { title: "Test", content: "Test" },
@@ -22,12 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     render(
         (
             <div>
+                <Labels content="Testing this Label" color="warning" />
                 <Alert width="1-2" content="Test" color="primary" isClosable />
                 <Badge count={99} />
                 <Breadcrumb items={breadcrumbItems} />
                 <Accordion
                     width="1-2"
                     items={accordionItems}
+                
                 />
             </div>
         ),
