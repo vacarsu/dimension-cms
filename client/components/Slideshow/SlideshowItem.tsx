@@ -1,36 +1,24 @@
 import * as React from 'react';
-import { alignClass } from '../../utils/align-class';
-import { heightClass } from '../../utils/height-class';
-import { widthClass } from '../../utils/width-class';
 
 declare interface props {
     src: string;
     alt?: string;
-    type: 'video' | 'image';
+    type: 'image' | 'video';
     videoFormat?: string;
     autoPlay?: boolean;
     loop?: boolean;
     muted?: boolean;
     playsinline?: boolean;
-    width?: string;
-    height?: string;
-    responsive?: boolean;
 }
 
-export class Cover extends React.Component<props, any> {
+
+export class SlideshowItem extends React.Component<props, any> {
     render() {
         return (
-            <div className="uk-cover-container">
-                {this.renderResponsiveMode()}
+            <li>
                 {this.renderBasedOnType()}
-            </div>
+            </li>
         );
-    }
-
-    private renderResponsiveMode() {
-        if (this.props.responsive) {
-            return (<canvas width={this.props.width} height={this.props.height} />);
-        }
     }
 
     private renderBasedOnType() {
@@ -39,8 +27,6 @@ export class Cover extends React.Component<props, any> {
                 <img
                     src={this.props.src}
                     alt={this.props.alt}
-                    width={this.props.width}
-                    height={this.props.height}
                     uk-cover
                 />
             );
@@ -51,8 +37,6 @@ export class Cover extends React.Component<props, any> {
                     loop={this.props.loop}
                     muted={this.props.muted}
                     playsinline={this.props.playsinline}
-                    width={this.props.width}
-                    height={this.props.height}
                     uk-cover
                 >
                     <source src={this.props.src} type={`${this.props.type}/${this.props.videoFormat}`} />

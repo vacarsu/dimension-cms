@@ -6,6 +6,7 @@ import { Accordion } from './components/Accordion/Accordion';
 import { Badge } from './components/Badge/Badge';
 import { Breadcrumb } from './components/Breadcrumb/Breadcrumb';
 import { Button } from './components/Button/Button';
+import { Cover } from './components/Cover/Cover';
 import { Dropdown } from './components/Dropdown/Dropdown';
 import { Flex } from './components/Flex/Flex';
 import { Grid } from './components/Grid/Grid';
@@ -17,7 +18,9 @@ import { Overlay } from './components/Overlay/Overlay';
 import { Panel } from './components/Panel/Panel';
 import { Progress } from './components/Progress/Progress';
 import { Labels } from './components/Labels/Labels'; 
-import { Link } from './components/Link/Link'; 
+import { Link } from './components/Link/Link';
+import { Slideshow } from './components/Slideshow/Slideshow';
+import { SlideshowItem } from './components/Slideshow/SlideshowItem';
 
 document.addEventListener('DOMContentLoaded', () => {
     render(
@@ -76,6 +79,45 @@ class ExamplePage extends React.Component<any, any> {
                         </li>
                     </Navbar>
                 </NavbarSticky>
+                <Slideshow maxHeight={100} navigation navigationStyle="light">
+                    <SlideshowItem
+                        src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4"
+                        type="video"
+                        videoFormat="mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsinline
+                    />
+                    <SlideshowItem
+                        src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4"
+                        type="video"
+                        videoFormat="mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsinline
+                    />
+                    <SlideshowItem
+                        src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4"
+                        type="video"
+                        videoFormat="mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsinline
+                    />
+                </Slideshow>
+                <Cover
+                    src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4"
+                    type="video"
+                    videoFormat="mp4"
+                    width="100%"
+                    autoPlay
+                    loop
+                    muted
+                    playsinline
+                />
                 <h3><Link href="#" type="muted">Test Heading</Link></h3>
                 <Labels content="Testing this Label" color="warning" />
                 <Alert width="1-2" content="Test" color="primary" isClosable />
