@@ -10,6 +10,8 @@ export function linkType(type: string): string {
           return 'heading';
       case 'reset':
           return 'reset';
+      default:
+          return 'default;
           
   }
 }
