@@ -6,7 +6,7 @@ declare interface BreadcrumbItem {
     label: string;
 }
 
-declare interface props extends BaseProps {
+declare interface props {
     items: BreadcrumbItem[];
 }
 

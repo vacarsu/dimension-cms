@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { colorClass } from '../../utils/color-class';
 import { alignClass } from '../../utils/align-class';
+import { heightClass } from '../../utils/height-class';
 import { widthClass } from '../../utils/width-class';
 
 declare interface props extends BaseProps {
@@ -16,6 +17,7 @@ export class Alert extends React.Component<props, any> {
                 className={`
                     uk-alert-${colorClass(this.props.color)}
                     ${alignClass(this.props.align)}
+                    ${heightClass(this.props.height)}
                     ${widthClass(this.props.width)}
                 `}
                 uk-alert=""

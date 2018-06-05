@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { alignClass } from '../../utils/align-class';
+import { heightClass } from '../../utils/height-class';
 import { widthClass } from '../../utils/width-class';
 
 declare interface props extends BaseProps {
@@ -15,6 +16,7 @@ export class Article extends React.Component<props, any> {
             <article className={`
                 uk-article
                 ${alignClass(this.props.align)}
+                ${heightClass(this.props.height)}
                 ${widthClass(this.props.width)}
             `}>
                 <h1 className="uk-article-title">{this.props.title}</h1>

@@ -3,7 +3,6 @@ import { colorClass } from '../../utils/color-class';
 import { alignClass } from '../../utils/align-class';
 
 declare interface props extends BaseProps {
-    label: string;
     color?: string;
     size?: string;
     href?: string;
@@ -12,7 +11,7 @@ declare interface props extends BaseProps {
 export class Button extends React.Component<props, any> {
     render() {
         return (
-            this.isLink ?
+            this.isLink() ?
             <a 
                 href={this.props.href}
                 className={`
@@ -21,7 +20,7 @@ export class Button extends React.Component<props, any> {
                     ${alignClass(this.props.align)}
                 `}
             >
-                {this.props.label}
+                {this.props.children}
             </a>
             :
             <button 
@@ -30,7 +29,7 @@ export class Button extends React.Component<props, any> {
                     uk-button-${this.setupSize()}
                 `}
             >
-                {this.props.label}
+                {this.props.children}
             </button>
         )
     }

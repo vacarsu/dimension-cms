@@ -2,7 +2,7 @@ import * as React from 'react';
 import { alignClass } from '../../utils/align-class';
 import { widthClass } from '../../utils/width-class';
 
-declare interface props extends BaseProps {
+declare interface props {
     value: number;
     max: number;
 }
@@ -19,7 +19,6 @@ export class Progress extends React.Component<props, state> {
     }
 
     static getDerivedStateFromProps(props, currentState) {
-        console.log([props, currentState]);
         if (currentState !== props.value) {
             return {
                 value: props.value,
@@ -30,11 +29,7 @@ export class Progress extends React.Component<props, state> {
     render() {
         return (
             <progress 
-                className={`
-                    uk-progress
-                    ${alignClass(this.props.align)}
-                    ${widthClass(this.props.width)}
-                `}
+                className="uk-progress"
                 value={this.state.value}
                 max={this.props.max}
             ></progress>

@@ -8,6 +8,10 @@ export function colorClass(color: string): string {
             return 'secondary';
         case 'danger':
             return 'danger';
+        case 'success':
+            return 'success';
+        case 'warning':
+            return 'warning';
         case 'text':
             return 'text';
         case 'link':
