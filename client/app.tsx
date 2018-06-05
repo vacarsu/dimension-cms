@@ -10,6 +10,9 @@ import { Dropdown } from './components/Dropdown/Dropdown';
 import { Flex } from './components/Flex/Flex';
 import { Grid } from './components/Grid/Grid';
 import { Inline } from './components/Inline/Inline';
+import { Navbar } from './components/Navbar/Navbar';
+import { NavbarDropdown } from './components/Navbar/NavbarDropdown';
+import { NavbarSticky } from './components/Navbar/NavbarSticky';
 import { Overlay } from './components/Overlay/Overlay';
 import { Panel } from './components/Panel/Panel';
 import { Progress } from './components/Progress/Progress';
@@ -56,6 +59,22 @@ class ExamplePage extends React.Component<any, any> {
     render() {
         return (
             <div>
+                <NavbarSticky>
+                    <Navbar dropdownAlign="left">
+                        <li>
+                            <a href="#">Parent</a>
+                            <NavbarDropdown>
+                                <li className="uk-active"><a href="#">Active</a></li>
+                                <li><a href="#">Item</a></li>
+                                <li className="uk-nav-header">Header</li>
+                                <li><a href="#">Item</a></li>
+                                <li><a href="#">Item</a></li>
+                                <li className="uk-nav-divider"></li>
+                                <li><a href="#">Item</a></li>
+                            </NavbarDropdown>
+                        </li>
+                    </Navbar>
+                </NavbarSticky>
                 <Labels content="Testing this Label" color="warning" />
                 <Alert width="1-2" content="Test" color="primary" isClosable />
                 <Badge count={this.badgeCount} />
