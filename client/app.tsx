@@ -4,7 +4,7 @@ import { Alert } from './components/Alert/Alert';
 import { Article } from './components/Article/Article';
 import { Accordion } from './components/Accordion/Accordion';
 import { Badge } from './components/Badge/Badge';
-import { Breadcrumb } from './components/Breadcrumb/Breadcrumb'; 
+import { Breadcrumb } from './components/Breadcrumb/Breadcrumb';
 
 const accordionItems = [
     { title: "Test", content: "Test" },
