@@ -5,6 +5,7 @@ import { Article } from './components/Article/Article';
 import { Accordion } from './components/Accordion/Accordion';
 import { Badge } from './components/Badge/Badge';
 import { Breadcrumb } from './components/Breadcrumb/Breadcrumb';
+import { Progress } from './components/Progress/Progress';
 
 const accordionItems = [
     { title: "Test", content: "Test" },
@@ -18,6 +19,14 @@ const breadcrumbItems = [
     { href: "#", label: "Test" }
 ];
 
+let progressValue = 0;
+let progressMax = 100;
+let progressInterval = setInterval(() => {
+    progressValue++;
+    if (progressValue === progressMax) { progressValue = 0 };
+    console.log(progressValue);
+}, 1000);
+
 document.addEventListener('DOMContentLoaded', () => {
     render(
         (
@@ -29,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     width="1-2"
                     items={accordionItems}
                 />
+                <Progress value={progressValue} max={progressMax} />
             </div>
         ),
         document.getElementById('root')
