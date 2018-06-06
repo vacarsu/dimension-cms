@@ -3,6 +3,7 @@ import { colorClass } from '../../utils/color-class';
 import { alignClass } from '../../utils/align-class';
 
 declare interface props extends BaseProps {
+    toggleOptions?: string;
     color?: string;
     size?: string;
     href?: string;
@@ -13,6 +14,7 @@ export class Button extends React.Component<props, any> {
         return (
             this.isLink() ?
             <a 
+                uk-toggle={this.props.toggleOptions}
                 href={this.props.href}
                 className={`
                     uk-button uk-button-${colorClass(this.props.color)}
@@ -24,6 +26,7 @@ export class Button extends React.Component<props, any> {
             </a>
             :
             <button 
+                uk-toggle={this.props.toggleOptions}
                 className={`
                     uk-button uk-button-${colorClass(this.props.color)}
                     uk-button-${this.setupSize()}

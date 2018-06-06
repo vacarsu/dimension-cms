@@ -6,34 +6,27 @@ import { widthClass } from '../../utils/width-class';
 declare interface AccordianItem {
     title: string;
     content: string;
+    options?: string;
 }
 
 declare interface props extends BaseProps {
     items: AccordianItem[];
-    multiple?: boolean;
-    collapsible?: boolean;
+    options?: string;
 }
 
 export class Accordion extends React.Component<props, any> {
     render() {
         return (
-            <ul className={`${heightClass(this.props.height)} ${widthClass(this.props.width)} ${alignClass(this.props.align)}`}
-                data-uk-accordion={`
-                    multiple: ${this.isMultipleDropdowns()};
-                    collapsible: ${this.isCollapsible()}
+            <ul className={`
+                    ${heightClass(this.props.height)}
+                    ${widthClass(this.props.width)}
+                    ${alignClass(this.props.align)}
                 `}
+                data-uk-accordion={this.props.options ? this.props.options : ""}
             >
                 {this.renderItems()}
             </ul>
         );
-    }
-
-    private isCollapsible() {
-        return this.props.collapsible ? true : false;
-    }
-
-    private isMultipleDropdowns() {
-        return this.props.multiple ? true : false;
     }
 
     private renderItems() {

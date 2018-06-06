@@ -7,9 +7,9 @@ declare interface props {
 export class Badge extends React.Component<props, any> {
     render() {
         return (
-            <div className="uk-badge">
+            <span className="uk-badge">
                 {this.props.count}
-            </div>
+            </span>
         );
     }
 }

@@ -1,35 +1,19 @@
 import * as React from "react";
 import { render } from 'react-dom';
-import { Alert } from './components/Alert/Alert';
-import { Article } from './components/Article/Article';
-import { Accordion } from './components/Accordion/Accordion';
-import { Badge } from './components/Badge/Badge';
-import { Breadcrumb } from './components/Breadcrumb/Breadcrumb';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import { Button } from './components/Button/Button';
-import { Cover } from './components/Cover/Cover';
-import { Dropdown } from './components/Dropdown/Dropdown';
-import { Flex } from './components/Flex/Flex';
-import { Grid } from './components/Grid/Grid';
-import { Inline } from './components/Inline/Inline';
-import { Navbar } from './components/Navbar/Navbar';
-import { NavbarDropdown } from './components/Navbar/NavbarDropdown';
-import { NavbarSticky } from './components/Navbar/NavbarSticky';
-import { Overlay } from './components/Overlay/Overlay';
-import { Parallax } from './components/Parallax/Parallax';
-import { Panel } from './components/Panel/Panel';
-import { Progress } from './components/Progress/Progress';
-import { Labels } from './components/Labels/Labels'; 
-import { Slideshow } from './components/Slideshow/Slideshow';
-import { SlideshowItem } from './components/Slideshow/SlideshowItem';
-import { Link } from './components/Link/Link'; 
 import { Container } from './components/Container/Container';
-import { Section } from './components/Section/Section';
-import { Light } from './components/Light/Light';
-import { Lightbox } from './components/Lightbox/Lightbox';
-import { LightboxItem } from './components/Lightbox/LightboxItem';
+import { Icon } from './components/Icon/Icon';
+import { Link } from './components/Link/Link';
 import { List } from './components/List/List';
 import { ListItem } from './components/List/ListItem';
-import { Dark } from './components/Dark/Dark';
+import { Offcanvas } from './components/Offcanvas/Offcanvas';
+import { OffcanvasContainer } from './components/Offcanvas/OffcanvasContainer';
+import { Navbar } from './components/Navbar/Navbar';
+import { NavbarSticky } from './components/Navbar/NavbarSticky';
+
+import { AccordionPage } from './pages/Accordion/AccordionPage';
 
 document.addEventListener('DOMContentLoaded', () => {
     render(
@@ -39,187 +23,31 @@ document.addEventListener('DOMContentLoaded', () => {
 }, false);
 
 class ExamplePage extends React.Component<any, any> {
-    accordionItems = [
-        { title: "Test", content: "Test" },
-        { title: "Test", content: "Test" },
-        { title: "Test", content: "Test" }
-    ];
-    breadcrumbItems = [
-        { href: "#", label: "Test" },
-        { href: "#", label: "Test" },
-        { href: "#", label: "Test" }
-    ];
-    badgeCount: number = 99;
-    progressMax: number = 100;
-    progressInterval: number;
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            progressValue: 0
-        }
-    }
-
-    componentDidMount() {
-        this.progressInterval = setInterval(() => {
-            this.setState({ progressValue: this.state.progressValue + 1 })
-            if (this.state.progressValue === this.progressMax) {
-                this.setState({ progressValue: 0 })
-            };
-        }, 1000);
-    }
-
     render() {
         return (
-            <div>
+            <OffcanvasContainer>
                 <NavbarSticky>
-                    <Navbar dropdownAlign="left">
-                        <li>
-                            <a href="#">Parent</a>
-                            <NavbarDropdown>
-                                <li className="uk-active"><a href="#">Active</a></li>
-                                <li><a href="#">Item</a></li>
-                                <li className="uk-nav-header">Header</li>
-                                <li><a href="#">Item</a></li>
-                                <li><a href="#">Item</a></li>
-                                <li className="uk-nav-divider"></li>
-                                <li><a href="#">Item</a></li>
-                            </NavbarDropdown>
-                        </li>
+                    <Navbar>
+                        <ListItem>
+                            <Link toggleOptions="target: #menu;" href="#">
+                                <Icon name="menu"></Icon>
+                            </Link>
+                        </ListItem>
                     </Navbar>
                 </NavbarSticky>
-                <Slideshow ratio="16:5" minHeight={100} maxHeight={100} navigation navigationStyle="light">
-                    <SlideshowItem
-                        src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4"
-                        type="video"
-                        videoFormat="mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsinline
-                    />
-                    <SlideshowItem
-                        src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4"
-                        type="video"
-                        videoFormat="mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsinline
-                    />
-                    <SlideshowItem
-                        src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4"
-                        type="video"
-                        videoFormat="mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsinline
-                    />
-                </Slideshow>
-                <Cover
-                    src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4"
-                    type="video"
-                    videoFormat="mp4"
-                    width="100%"
-                    autoPlay
-                    loop
-                    muted
-                    playsinline
-                />
-                <h3><Link href="#" type="muted">Test Heading</Link></h3>
-                <Section preserve="yes" style="muted" inverse="light" >
-                    <Container size="large">
-                        <Labels content="Testing this Label" color="warning" />
-                    </Container>
-                </Section>
-                <Dark>
-                    <Alert width="1-2" content="Test" color="primary" isClosable />
-                </Dark>
-                <Light>
-                    <Badge count={this.badgeCount} />
-                </Light>
-                <Lightbox>
-                    <LightboxItem href="https://quirksmode.org/html5/videos/big_buck_bunny.mp4" caption="test">
-                        Test
-                    </LightboxItem>
-                </Lightbox>
-                <Breadcrumb items={this.breadcrumbItems} />
-                <div>Accordion and Panel in a Flex container.</div>
-                <Flex alignment="center middle" direction="row">
-                    <Accordion
-                        width="1-2"
-                        items={this.accordionItems}
-                    />
-                    <Panel width="1-2" height="medium" align="right" isScrollable>
-                        <span>Test Panel</span>
-                    </Panel>
-                </Flex>
-                <div>Dropdown buttons in a grid.</div>
-                <Grid>
-                    <Inline style="dark">
-                        <Button>Test</Button>
-                        <Dropdown position="top-justify">
-                            <li className="uk-active"><a href="#">Active</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li className="uk-nav-header">Header</li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li className="uk-nav-divider"></li>
-                            <li><a href="#">Item</a></li>
-                        </Dropdown>
-                    </Inline>
-                    <Inline style="dark">
-                        <Button>Test</Button>
-                        <Dropdown position="top-justify">
-                            <li className="uk-active"><a href="#">Active</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li className="uk-nav-header">Header</li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li className="uk-nav-divider"></li>
-                            <li><a href="#">Item</a></li>
-                        </Dropdown>
-                    </Inline>
-                    <Inline style="dark">
-                        <Button>Test</Button>
-                        <Dropdown position="top-justify">
-                            <li className="uk-active"><a href="#">Active</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li className="uk-nav-header">Header</li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li className="uk-nav-divider"></li>
-                            <li><a href="#">Item</a></li>
-                        </Dropdown>
-                    </Inline>
-                    <Inline style="dark">
-                        <Button>Test</Button>
-                        <Dropdown position="top-justify">
-                            <li className="uk-active"><a href="#">Active</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li className="uk-nav-header">Header</li>
-                            <li><a href="#">Item</a></li>
-                            <li><a href="#">Item</a></li>
-                            <li className="uk-nav-divider"></li>
-                            <li><a href="#">Item</a></li>
-                        </Dropdown>
-                    </Inline>
-                </Grid>
-                <Progress value={this.state.progressValue} max={this.progressMax} />
-                <Parallax filters="bgy: -200">
-                    <div style={{width: "100%", height: "500px", backgroundPosition: "center center", backgroundImage: `url("/client/images/background.jpeg")`}}>
-                        <Parallax filters="y: 100,0">
-                            <h1>Headline</h1>
-                        </Parallax>
-                    </div>
-                </Parallax>
-                <List type="divider">
-                    <ListItem>Test 1</ListItem>
-                    <ListItem>Test 2</ListItem>
-                    <ListItem>Test 3</ListItem>
-                </List>
-            </div>
+                <Container>
+                    <Offcanvas id="menu" options="overlay: true">
+                        <List type="divider">
+                            <ListItem>
+                                <Button href="/client/">Accordion</Button>
+                            </ListItem>
+                        </List>
+                    </Offcanvas>
+                    <Router>
+                        <Route exact path="/client/" component={AccordionPage}/>
+                    </Router>
+                </Container>
+            </OffcanvasContainer>
         )
     }
 }
