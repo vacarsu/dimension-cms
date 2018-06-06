@@ -24,6 +24,10 @@ import { Link } from './components/Link/Link';
 import { Container } from './components/Container/Container';
 import { Section } from './components/Section/Section';
 import { Light } from './components/Light/Light';
+import { Lightbox } from './components/Lightbox/Lightbox';
+import { LightboxItem } from './components/Lightbox/LightboxItem';
+import { List } from './components/List/List';
+import { ListItem } from './components/List/ListItem';
 import { Dark } from './components/Dark/Dark';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -134,6 +138,11 @@ class ExamplePage extends React.Component<any, any> {
                 <Light>
                     <Badge count={this.badgeCount} />
                 </Light>
+                <Lightbox>
+                    <LightboxItem href="https://quirksmode.org/html5/videos/big_buck_bunny.mp4" caption="test">
+                        Test
+                    </LightboxItem>
+                </Lightbox>
                 <Breadcrumb items={this.breadcrumbItems} />
                 <div>Accordion and Panel in a Flex container.</div>
                 <Flex alignment="center middle" direction="row">
@@ -197,6 +206,11 @@ class ExamplePage extends React.Component<any, any> {
                     </Inline>
                 </Grid>
                 <Progress value={this.state.progressValue} max={this.progressMax} />
+                <List type="divider">
+                    <ListItem>Test 1</ListItem>
+                    <ListItem>Test 2</ListItem>
+                    <ListItem>Test 3</ListItem>
+                </List>
             </div>
         )
     }

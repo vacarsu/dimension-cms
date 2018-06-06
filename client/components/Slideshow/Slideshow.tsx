@@ -40,7 +40,7 @@ export class Slideshow extends React.Component<props, any> {
         if (this.props.animation) {
             return `animation: ${this.props.animation};`;
         } else {
-            return `animation: false;`;
+            return `animation: slide;`;
         }
     }
 
