@@ -15,6 +15,7 @@ import { Navbar } from './components/Navbar/Navbar';
 import { NavbarDropdown } from './components/Navbar/NavbarDropdown';
 import { NavbarSticky } from './components/Navbar/NavbarSticky';
 import { Overlay } from './components/Overlay/Overlay';
+import { Parallax } from './components/Parallax/Parallax';
 import { Panel } from './components/Panel/Panel';
 import { Progress } from './components/Progress/Progress';
 import { Labels } from './components/Labels/Labels'; 
@@ -206,6 +207,13 @@ class ExamplePage extends React.Component<any, any> {
                     </Inline>
                 </Grid>
                 <Progress value={this.state.progressValue} max={this.progressMax} />
+                <Parallax filters="bgy: -200">
+                    <div style={{width: "100%", height: "500px", backgroundPosition: "center center", backgroundImage: `url("/client/images/background.jpeg")`}}>
+                        <Parallax filters="y: 100,0">
+                            <h1>Headline</h1>
+                        </Parallax>
+                    </div>
+                </Parallax>
                 <List type="divider">
                     <ListItem>Test 1</ListItem>
                     <ListItem>Test 2</ListItem>
