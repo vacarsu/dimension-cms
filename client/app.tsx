@@ -83,7 +83,7 @@ class ExamplePage extends React.Component<any, any> {
                         </li>
                     </Navbar>
                 </NavbarSticky>
-                <Slideshow maxHeight={100} navigation navigationStyle="light">
+                <Slideshow ratio="16:5" minHeight={100} maxHeight={100} navigation navigationStyle="light">
                     <SlideshowItem
                         src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4"
                         type="video"
