@@ -27,37 +27,37 @@ export class AccordionPage extends React.Component {
         const articleContent = `Create a list of items that can be shown individually by clicking an item's header.`;
         
         return (
-            <Container>
+            <Container size="small">
                 <Article title={articleTitle}>
                     <p>
                         {articleContent}
                     </p>
                     <h3>Properties</h3>
-                    <Table divider striped>
+                    <Table divider size="small">
                         <TableHead>
                             <TableRow>
                                 <TableHeader shrink>Property</TableHeader>
-                                <TableHeader>Type</TableHeader>
-                                <TableHeader expand>Description</TableHeader>
+                                <TableHeader width="small">Type</TableHeader>
+                                <TableHeader>Description</TableHeader>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             <TableRow>
                                 <TableData shrink>Items</TableData>
-                                <TableData>
-                                    {`[{
+                                <TableData width="small">
+                                    {`[ {
                                         title: string;
                                         content: string;
-                                    }]`}
+                                    } ]`}
                                 </TableData>
-                                <TableData expand>
+                                <TableData>
                                     An array of AccordionItems to be rendered inside the Accordian tag.
                                 </TableData>
                             </TableRow>
                             <TableRow>
                                 <TableData>Options</TableData>
                                 <TableData>String</TableData>
-                                <TableData expand>
+                                <TableData>
                                     A string of component modifiers.
                                     For a list of all modifiers see <a href="https://getuikit.com/docs/accordion#component-options">UIkit Accordian</a>
                                 </TableData>
