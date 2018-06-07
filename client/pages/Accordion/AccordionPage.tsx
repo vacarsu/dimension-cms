@@ -38,6 +38,7 @@ export class AccordionPage extends React.Component {
                             <TableRow>
                                 <TableHeader shrink>Property</TableHeader>
                                 <TableHeader width="small">Type</TableHeader>
+                                <TableHeader width="small">Required</TableHeader>
                                 <TableHeader>Description</TableHeader>
                             </TableRow>
                         </TableHead>
@@ -45,18 +46,20 @@ export class AccordionPage extends React.Component {
                             <TableRow>
                                 <TableData shrink>Items</TableData>
                                 <TableData width="small">
-                                    {`[ {
+                                    <code>{`[ {
                                         title: string;
                                         content: string;
-                                    } ]`}
+                                    } ]`}</code>
                                 </TableData>
+                                <TableData><code>true</code></TableData>
                                 <TableData>
                                     An array of AccordionItems to be rendered inside the Accordian tag.
                                 </TableData>
                             </TableRow>
                             <TableRow>
                                 <TableData>Options</TableData>
-                                <TableData>String</TableData>
+                                <TableData><code>string</code></TableData>
+                                <TableData><code>false</code></TableData>
                                 <TableData>
                                     A string of component modifiers.
                                     For a list of all modifiers see <a href="https://getuikit.com/docs/accordion#component-options">UIkit Accordian</a>

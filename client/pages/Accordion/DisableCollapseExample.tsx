@@ -39,7 +39,7 @@ export class DisableCollapseExample extends React.Component {
     { title: "Test", content: "Test" }
 ];
 
-<Accordion width="1-2" items={accordionItems} />
+<Accordion options="collapsible: false;" items={accordionItems} />
 `
                             }
                         </code>
