@@ -1,8 +1,6 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 import { setClassNames } from '../../utils/set-class-names'
-import { heightClass } from '../../utils/height-class';
-import { widthClass } from '../../utils/width-class';
 
 declare interface AccordionItem {
     title: string;

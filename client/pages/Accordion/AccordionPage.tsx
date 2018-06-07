@@ -4,6 +4,7 @@ import * as Prism from 'prismjs';
 import { Accordion } from '../../components/Accordion/Accordion';
 import { Article } from '../../components/Article/Article';
 import { Container } from '../../components/Container/Container';
+import { Flex } from '../../components/Flex/Flex';
 import { Section } from '../../components/Section/Section';
 import { Table } from '../../components/Table/Table';
 import { TableBody } from '../../components/Table/TableBody';
@@ -83,7 +84,9 @@ export class AccordionPage extends React.Component {
                     </Section>
                     <Section>
                         <h3>Disable Collapse</h3>
+                        <Flex>
                         <DisableCollapseExample />
+                        </Flex>
                     </Section>
                     <Section>
                         <h3>Expand Multiple</h3>

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
 
 declare interface props {
     alignment?: string;
@@ -11,31 +12,21 @@ export class Flex extends React.Component<props, any> {
         return (
             <div className={`
                 uk-flex
-                ${this.setAlignment()}
-                ${this.setDirection()}
-                ${this.setWrap()}
+                ${this.setClassNames()}
             `}>
                 {this.props.children}
             </div>
         );
     }
 
-    private setAlignment(): string {
-        if (this.props.alignment) {
-            let stringArray = this.props.alignment.split(' ');
-            return `uk-flex-${stringArray[0]} uk-flex-${stringArray[1]}`
-        }
-    }
+    private setClassNames(): string {
+        const alignments = this.props.alignment ? this.props.alignment.split(' ') : [];
 
-    private setDirection(): string {
-        if (this.props.direction) {
-            return `uk-flex-${this.props.direction}`;
-        }
-    }
-
-    private setWrap(): string {
-        if (this.props.wrap) {
-            return `uk-flex-${this.props.wrap}`;
-        }
+        return classNames({
+            [`uk-flex-${alignments[0]}`]: !!alignments[0],
+            [`uk-flex-${alignments[1]}`]: !!alignments[1],
+            [`uk-flex-${this.props.direction}`]: !!this.props.direction,
+            [`uk-flex-${this.props.wrap}`]: !!this.props.wrap
+        });
     }
 }
