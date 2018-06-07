@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { sizeClass } from '../../utils/size-class';
+import * as classNames from 'classnames';
 
-declare interface props extends BaseProps {
+declare interface props {
   size?: string;
 }
 
@@ -9,11 +9,17 @@ declare interface props extends BaseProps {
 export class Container extends React.Component<props, any> {
     render() {
         return (
-            <div className={`
-                uk-container uk-container-${sizeClass(this.props.size)}
-            `}>
-            {this.props.children}
+            <div className={this.setClassNames()}>
+                {this.props.children}
             </div>
         );
+    }
+
+    private setClassNames(): string {
+        const isSized = this.props.size ? true : false;
+        return classNames({
+            [`uk-container`]: true,
+            [`uk-container-${this.props.size}`]: isSized
+        });
     }
 }

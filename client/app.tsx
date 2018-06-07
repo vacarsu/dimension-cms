@@ -1,6 +1,11 @@
 import * as React from "react";
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import 'prismjs';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/plugins/toolbar/prism-toolbar';
+import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
+import 'prismjs/components/prism-css';
 
 import { Button } from './components/Button/Button';
 import { Container } from './components/Container/Container';
@@ -14,6 +19,7 @@ import { Navbar } from './components/Navbar/Navbar';
 import { NavbarSticky } from './components/Navbar/NavbarSticky';
 
 import { AccordionPage } from './pages/Accordion/AccordionPage';
+import { IconPage } from './pages/Icon/IconPage';
 
 document.addEventListener('DOMContentLoaded', () => {
     render(
@@ -30,23 +36,28 @@ class ExamplePage extends React.Component<any, any> {
                     <Navbar>
                         <ListItem>
                             <Link toggleOptions="target: #menu;" href="#">
-                                <Icon name="menu"></Icon>
+                                <Icon options="menu" button />
                             </Link>
                         </ListItem>
                     </Navbar>
                 </NavbarSticky>
-                <Container>
-                    <Offcanvas id="menu" options="overlay: true">
-                        <List type="divider">
-                            <ListItem>
-                                <Button href="/client/">Accordion</Button>
-                            </ListItem>
-                        </List>
-                    </Offcanvas>
-                    <Router>
-                        <Route exact path="/client/" component={AccordionPage}/>
-                    </Router>
-                </Container>
+                
+                <Router>
+                    <Container size="medium">
+                        <Offcanvas id="menu" options="overlay: true">
+                            <List type="divider">
+                                <ListItem>
+                                    <NavLink to="/client/accordion">Accordion</NavLink>
+                                </ListItem>
+                                <ListItem>
+                                    <NavLink to="/client/icon">Icon</NavLink>
+                                </ListItem>
+                            </List>
+                        </Offcanvas>
+                        <Route exact path="/client/accordion" component={AccordionPage}/>
+                        <Route exact path="/client/icon" component={IconPage}/>
+                    </Container>
+                </Router>
             </OffcanvasContainer>
         )
     }

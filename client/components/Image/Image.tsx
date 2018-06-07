@@ -2,6 +2,7 @@ import * as React from 'react';
 
 declare interface props {
     src: string;
+    options?: string;
     className?: string;
     width?: string;
     height?: string;
@@ -18,7 +19,7 @@ export class Image extends React.Component<props, any> {
                 height={this.props.height}
                 style={this.props.style}
                 data-src={this.props.src}
-                uk-img=""
+                uk-img={this.props.options ? this.props.options : ""}
             />
         );
     }

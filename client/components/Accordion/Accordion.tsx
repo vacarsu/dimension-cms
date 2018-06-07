@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { alignClass } from '../../utils/align-class';
+import * as classNames from 'classnames';
+import { setClassNames } from '../../utils/set-class-names'
 import { heightClass } from '../../utils/height-class';
 import { widthClass } from '../../utils/width-class';
 
@@ -17,11 +18,7 @@ declare interface props extends BaseProps {
 export class Accordion extends React.Component<props, any> {
     render() {
         return (
-            <ul className={`
-                    ${heightClass(this.props.height)}
-                    ${widthClass(this.props.width)}
-                    ${alignClass(this.props.align)}
-                `}
+            <ul className={setClassNames(this.props)}
                 data-uk-accordion={this.props.options ? this.props.options : ""}
             >
                 {this.renderItems()}

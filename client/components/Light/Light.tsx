@@ -10,7 +10,7 @@ export class Light extends React.Component<props, any> {
             <div className={`
                 uk-light
             `}>
-            {this.props.children}
+                {this.props.children}
             </div>
         );
     }

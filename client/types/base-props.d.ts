@@ -1,3 +1,4 @@
+declare function require(name:string);
 declare var UIkit;
 
 interface BaseProps {

@@ -7,7 +7,9 @@ declare interface props extends BaseProps {
 export class Inline extends React.Component<props, any> {
     render() {
         return (
-            <div className={`uk-inline ${this.setStyle()}`}>
+            <div className={`
+                uk-inline ${this.setStyle()}
+            `}>
                 {this.props.children}
             </div>
         );

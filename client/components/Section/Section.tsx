@@ -14,9 +14,12 @@ export class Section extends React.Component<props, any> {
     render() {
         return (
             <div className={`
-                uk-section uk-section-${styleClass(this.props.style)} uk-${inverseClass(this.props.inverse)} ${presserveClass(this.props.preserve)}
+                uk-section
+                uk-section-${styleClass(this.props.style)}
+                uk-${inverseClass(this.props.inverse)}
+                ${presserveClass(this.props.preserve)}
             `}>
-            {this.props.children}
+                {this.props.children}
             </div>
         );
     }

@@ -11,8 +11,15 @@ export class Navbar extends React.Component<props, any> {
     render() {
         return (
             <div>
-                <nav className={`uk-navbar-container ${this.setTransparent()}`}
-                    uk-navbar={this.props.options ? this.props.options : ""}>
+                <nav
+                    className={`
+                        uk-navbar-container
+                        ${this.setTransparent()}
+                    `}
+                    uk-navbar={
+                        this.props.options ? this.props.options : ""
+                    }
+                >
                     <div className={`${this.setAlign()}`}>
                         <ul className="uk-navbar-nav">
                             {this.props.children}

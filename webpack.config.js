@@ -43,6 +43,11 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist')
 	},
 	devServer: {
-		contentBase: './'
+		compress: true,
+		historyApiFallback: {
+			rewrites: [
+				{ from: /\/*/, to: './client/index.html' }
+			]
+		}
 	},
 };

@@ -1,8 +1,7 @@
 import * as React from 'react';
 
 declare interface props extends BaseProps {
-  filters: string;
-  easing?: number;
+  options: string;
 }
 
 
@@ -18,7 +17,7 @@ export class Parallax extends React.Component<props, any> {
     private applyParallaxFiltersToChild() {
         return React.Children.map(this.props.children, (child: React.ReactChild, idx: number) => {
             if (idx > 0) return child;
-            return React.cloneElement(child as React.ReactElement<any>, { 'uk-parallax': this.props.filters });
+            return React.cloneElement(child as React.ReactElement<any>, { 'uk-parallax': this.props.options });
         });
     }
 }
