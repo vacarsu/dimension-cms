@@ -74,7 +74,7 @@ export class AccordionPage extends React.Component {
                     <h3>Elements</h3>
                     <pre>
                         <code id="elements-usage" className="language-tsx">
-                            {`<Accordion options="" items="{ title: string; content: string; }[] />`}
+                            {`<Accordion options="" items={ title: string; content: string; }[] />`}
                         </code>
                     </pre>
                     <Section>

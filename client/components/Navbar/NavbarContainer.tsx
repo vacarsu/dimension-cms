@@ -1,6 +1,7 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
 
-declare interface props {
+declare interface props extends BaseProps {
     options?: string;
     dropbar?: boolean;
     transparent?: boolean;
@@ -12,9 +13,10 @@ export class NavbarContainer extends React.Component<props, any> {
             <div>
                 <nav
                     className={`
+                        ${this.setClassNames()}
                         uk-navbar-container
-                        ${this.setTransparent()}
                     `}
+                    style={this.props.style}
                     uk-navbar={
                         this.props.options ? this.props.options : ""
                     }
@@ -31,9 +33,10 @@ export class NavbarContainer extends React.Component<props, any> {
         );
     }
 
-    private setTransparent(): string {
-        if (this.props.transparent) {
-            return `uk-navbar-transparent`;
-        }
+    private setClassNames(): string {
+        return classNames({
+            [`uk-navbar-transparent`]: this.props.transparent,
+            [this.props.className]: !!this.props.className
+        });
     }
 }

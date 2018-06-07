@@ -37,7 +37,7 @@ class ExamplePage extends React.Component<any, any> {
         return (
             <OffcanvasContainer>
                 <NavbarSticky>
-                    <NavbarContainer>
+                    <NavbarContainer className="uk-background-primary">
                         <Navbar>
                             <ListItem>
                                 <Link toggleOptions="target: #menu;" href="#">
