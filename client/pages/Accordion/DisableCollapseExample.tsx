@@ -33,7 +33,7 @@ export class DisableCollapseExample extends React.Component {
                     <pre>
                         <code id="disable-collapse-usage" className="language-jsx">
                             {
-`const accordionItems = [
+`const accordionItems: AccordianItem[] = [
     { title: "Test", content: "Test" },
     { title: "Test", content: "Test" },
     { title: "Test", content: "Test" }

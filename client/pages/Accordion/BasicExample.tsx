@@ -30,9 +30,9 @@ export class BasicExample extends React.Component {
                 </TabContent>
                 <TabContent key="tab-content">
                     <pre>
-                        <code id="basic-usage" className="language-jsx">
+                        <code id="basic-usage" className="language-tsx">
                             {
-`const accordionItems = [
+`const accordionItems: AccordianItem[] = [
     { title: "Test", content: "Test" },
     { title: "Test", content: "Test" },
     { title: "Test", content: "Test" }

@@ -18,8 +18,8 @@ import { DisableCollapseExample } from './DisableCollapseExample';
 import { ExpandMultipleExample } from './ExpandMultipleExample';
 
 export class AccordionPage extends React.Component {
-    componentDidUpdate() {
-        Prism.highlightElement(document.getElementById('elements'));
+    componentDidMount() {
+        Prism.highlightElement(document.getElementById('elements-usage'));
     }
 
     render() {
@@ -38,6 +38,7 @@ export class AccordionPage extends React.Component {
                             <TableRow>
                                 <TableHeader shrink>Property</TableHeader>
                                 <TableHeader width="small">Type</TableHeader>
+                                <TableHeader width="small">Default</TableHeader>
                                 <TableHeader width="small">Required</TableHeader>
                                 <TableHeader>Description</TableHeader>
                             </TableRow>
@@ -51,6 +52,7 @@ export class AccordionPage extends React.Component {
                                         content: string;
                                     } ]`}</code>
                                 </TableData>
+                                <TableData><code>-</code></TableData>
                                 <TableData><code>true</code></TableData>
                                 <TableData>
                                     An array of AccordionItems to be rendered inside the Accordian tag.
@@ -59,6 +61,7 @@ export class AccordionPage extends React.Component {
                             <TableRow>
                                 <TableData>Options</TableData>
                                 <TableData><code>string</code></TableData>
+                                <TableData><code>-</code></TableData>
                                 <TableData><code>false</code></TableData>
                                 <TableData>
                                     A string of component modifiers.
@@ -70,8 +73,8 @@ export class AccordionPage extends React.Component {
                     </Table>
                     <h3>Elements</h3>
                     <pre>
-                        <code id="elements" className="language-jsx">
-                            {`<Accordion />`}
+                        <code id="elements-usage" className="language-tsx">
+                            {`<Accordion options="" items="{ title: string; content: string; }[] />`}
                         </code>
                     </pre>
                     <Section>

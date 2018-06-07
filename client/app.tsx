@@ -4,9 +4,10 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import 'prismjs';
 import 'prismjs/components/prism-javascript.min';
 import 'prismjs/components/prism-jsx.min';
+import 'prismjs/components/prism-tsx.min';
 import 'prismjs/plugins/toolbar/prism-toolbar';
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
-import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-css.min';
 
 import { Button } from './components/Button/Button';
 import { Container } from './components/Container/Container';

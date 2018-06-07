@@ -4,14 +4,14 @@ import { setClassNames } from '../../utils/set-class-names'
 import { heightClass } from '../../utils/height-class';
 import { widthClass } from '../../utils/width-class';
 
-declare interface AccordianItem {
+declare interface AccordionItem {
     title: string;
     content: string;
     options?: string;
 }
 
 declare interface props extends BaseProps {
-    items: AccordianItem[];
+    items: AccordionItem[];
     options?: string;
 }
 
@@ -27,7 +27,7 @@ export class Accordion extends React.Component<props, any> {
     }
 
     private renderItems() {
-        return this.props.items.map((item: AccordianItem) => (
+        return this.props.items.map((item: AccordionItem) => (
             <li>
                 <a className="uk-accordion-title" href="#">{item.title}</a>
                 <div className="uk-accordion-content">{item.content}</div>

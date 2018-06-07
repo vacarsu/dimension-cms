@@ -31,9 +31,9 @@ export class ExpandMultipleExample extends React.Component {
                 </TabContent>
                 <TabContent key="tab-content">
                     <pre>
-                        <code id="expand-multiple-usage" className="language-jsx">
+                        <code id="expand-multiple-usage" className="language-tsx">
                             {
-`const accordionItems = [
+`const accordionItems: AccordianItem[] = [
     { title: "Test", content: "Test" },
     { title: "Test", content: "Test" },
     { title: "Test", content: "Test" }
