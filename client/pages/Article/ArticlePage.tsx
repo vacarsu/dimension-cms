@@ -15,17 +15,15 @@ import { TableHeader } from '../../components/Table/TableHeader';
 import { TableRow } from '../../components/Table/TableRow';
 
 import { BasicExample } from './BasicExample';
-import { CloseButtonExample } from './CloseButtonExample';
-import { ColorsExample } from './ColorsExample';
 
-export class AlertPage extends React.Component {
+export class ArticlePage extends React.Component {
     componentDidMount() {
         Prism.highlightElement(document.getElementById('elements-usage'));
     }
 
     render() {
-        const articleTitle = 'Alert';
-        const articleContent = `Display success, warning and error messages.`;
+        const articleTitle = 'Article';
+        const articleContent = `Create articles within your page.`;
         
         return (
             <Container size="small">
@@ -46,44 +44,41 @@ export class AlertPage extends React.Component {
                         </TableHead>
                         <TableBody>
                             <TableRow>
-                                <TableData shrink>Content</TableData>
+                                <TableData shrink>Children</TableData>
                                 <TableData width="small">
-                                    <code>{`String`}</code>
+                                    <code>any</code>
                                 </TableData>
                                 <TableData><code>-</code></TableData>
                                 <TableData><code>true</code></TableData>
                                 <TableData>
-                                    The message content to display in the alert.
+                                    Child elements that compose the article content.
                                 </TableData>
                             </TableRow>
                             <TableRow>
-                                <TableData>Color</TableData>
+                                <TableData>Title</TableData>
+                                <TableData><code>string</code></TableData>
+                                <TableData><code>-</code></TableData>
+                                <TableData><code>true</code></TableData>
+                                <TableData>
+                                    The title of the article.
+                                </TableData>
+                            </TableRow>
+                            <TableRow>
+                                <TableData>Meta</TableData>
                                 <TableData><code>string</code></TableData>
                                 <TableData><code>-</code></TableData>
                                 <TableData><code>false</code></TableData>
                                 <TableData>
-                                    Change the color style of the alert.
-                                    You can provide <code>primary</code>, <code>success</code>,
-                                    <code>warning</code>, or <code>danger</code>
+                                    Renders a meta section of the article for displaying author details if provided.
                                 </TableData>
                             </TableRow>
                             <TableRow>
-                                <TableData>Options</TableData>
+                                <TableData>Lead</TableData>
                                 <TableData><code>string</code></TableData>
                                 <TableData><code>-</code></TableData>
                                 <TableData><code>false</code></TableData>
                                 <TableData>
-                                    A string of component modifiers.
-                                    For a list of all modifiers see <a href="https://getuikit.com/docs/alert#component-options">UIkit Alert</a>
-                                </TableData>
-                            </TableRow>
-                            <TableRow>
-                                <TableData>isClosable</TableData>
-                                <TableData><code>boolean</code></TableData>
-                                <TableData><code>false</code></TableData>
-                                <TableData><code>false</code></TableData>
-                                <TableData>
-                                    This will render a close icon which will remove the alert when clicked.
+                                    Renders a lead section of the article if provided
                                 </TableData>
                             </TableRow>
                         </TableBody>
@@ -92,20 +87,14 @@ export class AlertPage extends React.Component {
                     <h3>Elements</h3>
                     <pre>
                         <code id="elements-usage" className="language-tsx">
-                            {`<Alert content="String" options="" color="String" isClosable />`}
+                            {
+`<Article title="String" meta="String" lead="String">
+</Article>`}
                         </code>
                     </pre>
                     <Section padding>
                         <h3>Basic Usage</h3>
                         <BasicExample />
-                    </Section>
-                    <Section padding>
-                        <h3>Close Button</h3>
-                        <CloseButtonExample />
-                    </Section>
-                    <Section padding>
-                        <h3>Colors</h3>
-                        <ColorsExample />
                     </Section>
                 </Article>
             </Container>

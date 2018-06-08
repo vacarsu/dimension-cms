@@ -27,6 +27,8 @@ import { Flex } from './components/Flex/Flex';
 import { Parallax } from './components/Parallax/Parallax';
 
 import { AccordionPage } from './pages/Accordion/AccordionPage';
+import { AlertPage } from './pages/Alert/AlertPage';
+import { ArticlePage } from './pages/Article/ArticlePage';
 import { IconPage } from './pages/Icon/IconPage';
 import { IndexPage } from './pages/Index/IndexPage';
 
@@ -42,26 +44,27 @@ class ExamplePage extends React.Component<any, any> {
         return (
             <OffcanvasContainer>
                 <Router>
-                    <div className="uk-position-relative">
-                        <Section style="primary" preserveColor>
-                        <NavbarSticky options="animation: uk-animation-slide-top; cls-inactive: uk-navbar-transparent uk-light; top: 456;">
-                            <NavbarContainer transparent>
-                                <Navbar>
-                                    <ListItem>
-                                        <Link toggleOptions="target: #menu;" href="#">
-                                            <Icon options="menu" button />
-                                        </Link>
-                                    </ListItem>
-                                </Navbar>
-                                <Navbar align="right">
-                                    <ListItem>
-                                        <Link href="https://github.com/vacarsu/dimension-cms">
-                                            <Icon options="github" button />
-                                        </Link>
-                                    </ListItem>
-                                </Navbar>
-                            </NavbarContainer>
-                        </NavbarSticky>
+                    <Section className="uk-position-relative">
+                        <Section style="secondary" preserveColor>
+                            <NavbarSticky options="animation: uk-animation-slide-top; cls-inactive: uk-navbar-transparent uk-light; top: 556;">
+                                <NavbarContainer transparent>
+                                    <Navbar>
+                                        <ListItem>
+                                            <Link toggleOptions="target: #menu;" href="#">
+                                                <Icon options="menu" button />
+                                            </Link>
+                                        </ListItem>
+                                    </Navbar>
+                                    <Navbar align="right">
+                                        <ListItem>
+                                            <Link href="https://github.com/vacarsu/dimension-cms">
+                                                <Icon options="github" button />
+                                            </Link>
+                                        </ListItem>
+                                    </Navbar>
+                                </NavbarContainer>
+                            </NavbarSticky>
+                        </Section>
                         <Offcanvas id="menu" options="overlay: true">
                             <List type="divider">
                                 <ListItem>
@@ -71,15 +74,22 @@ class ExamplePage extends React.Component<any, any> {
                                     <NavLink to="/client/accordion">Accordion</NavLink>
                                 </ListItem>
                                 <ListItem>
+                                    <NavLink to="/client/alert">Alert</NavLink>
+                                </ListItem>
+                                <ListItem>
+                                    <NavLink to="/client/article">Article</NavLink>
+                                </ListItem>
+                                <ListItem>
                                     <NavLink to="/client/icon">Icon</NavLink>
                                 </ListItem>
                             </List>
                         </Offcanvas>
                         <Route exact path="/client/" component={IndexPage} />
                         <Route exact path="/client/accordion" component={AccordionPage}/>
+                        <Route exact path="/client/alert" component={AlertPage}/>
+                        <Route exact path="/client/article" component={ArticlePage}/>
                         <Route exact path="/client/icon" component={IconPage}/>
-                        </Section>
-                    </div>
+                    </Section>
                 </Router>
             </OffcanvasContainer>
         )

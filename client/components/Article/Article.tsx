@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { alignClass } from '../../utils/align-class';
-import { heightClass } from '../../utils/height-class';
-import { widthClass } from '../../utils/width-class';
+import { setClassNames } from '../../utils/set-class-names';
 
 declare interface props extends BaseProps {
+    children: any;
     title: string;
     meta?: string;
     lead?: string
@@ -14,9 +13,7 @@ export class Article extends React.Component<props, any> {
         return (
             <article className={`
                 uk-article
-                ${alignClass(this.props.align)}
-                ${heightClass(this.props.height)}
-                ${widthClass(this.props.width)}
+                ${setClassNames(this.props)}
             `}>
                 <h1 className="uk-article-title">{this.props.title}</h1>
                 { this.props.meta ? <p className="uk-article-meta">{this.props.meta}</p> : '' }

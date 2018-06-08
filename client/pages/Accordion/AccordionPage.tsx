@@ -46,12 +46,9 @@ export class AccordionPage extends React.Component {
                         </TableHead>
                         <TableBody>
                             <TableRow>
-                                <TableData shrink>Items</TableData>
+                                <TableData shrink>Children</TableData>
                                 <TableData width="small">
-                                    <code>{`[ {
-                                        title: string;
-                                        content: string;
-                                    } ]`}</code>
+                                    <code>{`<AccordionItem />`}</code>
                                 </TableData>
                                 <TableData><code>-</code></TableData>
                                 <TableData><code>true</code></TableData>
@@ -75,20 +72,23 @@ export class AccordionPage extends React.Component {
                     <h3>Elements</h3>
                     <pre>
                         <code id="elements-usage" className="language-tsx">
-                            {`<Accordion options="" items={ title: string; content: string; }[] />`}
+                            {
+`<Accordion options="">
+    <AccordionItem title="String" content="String" />
+<Accordion>`}
                         </code>
                     </pre>
-                    <Section>
+                    <Section padding>
                         <h3>Basic Usage</h3>
                         <BasicExample />
                     </Section>
-                    <Section>
+                    <Section padding>
                         <h3>Disable Collapse</h3>
                         <Flex>
                         <DisableCollapseExample />
                         </Flex>
                     </Section>
-                    <Section>
+                    <Section padding>
                         <h3>Expand Multiple</h3>
                         <ExpandMultipleExample />
                     </Section>

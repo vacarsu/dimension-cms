@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-declare interface props {
+declare interface props extends BaseProps {
     id: string;
     options?: string;
     onBeforeShow?: Function;

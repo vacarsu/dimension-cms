@@ -1,4 +1,7 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
+
+import { setClassNames } from '../../utils/set-class-names';
 import { colorClass } from '../../utils/color-class';
 import { alignClass } from '../../utils/align-class';
 import { heightClass } from '../../utils/height-class';
@@ -15,13 +18,8 @@ export class Alert extends React.Component<props, any> {
     render() {
         return (
             <div
-                className={`
-                    uk-alert-${colorClass(this.props.color)}
-                    ${alignClass(this.props.align)}
-                    ${heightClass(this.props.height)}
-                    ${widthClass(this.props.width)}
-                `}
-                uk-alert={this.props.options}
+                className={this.setClassNames()}
+                uk-alert={this.props.options ? this.props.options : ""}
             >
                 {
                     this.props.isClosable ?
@@ -32,5 +30,12 @@ export class Alert extends React.Component<props, any> {
                 <span>{this.props.content}</span>
             </div>
         );
+    }
+
+    private setClassNames(): string {
+        return classNames({
+            [`uk-alert-${this.props.color}`]: !!this.props.color,
+            [setClassNames(this.props)]: true
+        });
     }
 }

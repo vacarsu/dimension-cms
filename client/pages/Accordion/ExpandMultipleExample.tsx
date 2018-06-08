@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Prism from 'prismjs';
 
 import { Accordion } from '../../components/Accordion/Accordion';
+import { AccordionItem } from '../../components/Accordion/AccordionItem';
 import { Tab } from '../../components/Tab/Tab';
 import { TabContainer } from '../../components/Tab/TabContainer';
 import { TabContent } from '../../components/Tab/TabContent';
@@ -25,9 +26,10 @@ export class ExpandMultipleExample extends React.Component {
                 <TabContent key="tab-content">
                     <Accordion
                         width="1-2"
-                        items={accordionItems}
                         options="multiple: true;"
-                    />
+                    >
+                        {accordionItems.map(item => (<AccordionItem title={item.title} content={item.content} />))}
+                    </Accordion>
                 </TabContent>
                 <TabContent key="tab-content">
                     <pre>

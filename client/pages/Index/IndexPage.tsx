@@ -7,18 +7,19 @@ import { Light } from '../../components/Light/Light';
 import { List } from '../../components/List/List';
 import { ListItem } from '../../components/List/ListItem';
 import { Section } from '../../components/Section/Section';
+import { Image } from '../../components/Image/Image';
 
 export class IndexPage extends React.Component {
     render() {
         return (
             <Flex direction="column">
                 <Light>
-                    <Section padding>
+                    <Section style="secondary" padding>
                         <Flex alignment="center">
-                            <img src="/client/images/kairos-logo-white.png" />
+                            <object width="300" height="300" data="/client/images/uikit-react.svg" />
                         </Flex>
                         <Flex alignment="center">
-                            <h2>Welcome To Dimension</h2>
+                            <h2>React UIkit</h2>
                         </Flex>
                         <Flex alignment="center">
                             <Button size="large" color="primary">Get Started</Button>
