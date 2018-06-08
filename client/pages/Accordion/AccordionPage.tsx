@@ -28,72 +28,74 @@ export class AccordionPage extends React.Component {
         const articleContent = `Create a list of items that can be shown individually by clicking an item's header.`;
         
         return (
-            <Container size="small">
-                <Article title={articleTitle}>
-                    <p>
-                        {articleContent}
-                    </p>
-                    <h3>Properties</h3>
-                    <Table divider size="small">
-                        <TableHead>
-                            <TableRow>
-                                <TableHeader shrink>Property</TableHeader>
-                                <TableHeader width="small">Type</TableHeader>
-                                <TableHeader width="small">Default</TableHeader>
-                                <TableHeader width="small">Required</TableHeader>
-                                <TableHeader>Description</TableHeader>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            <TableRow>
-                                <TableData shrink>Children</TableData>
-                                <TableData width="small">
-                                    <code>{`<AccordionItem />`}</code>
-                                </TableData>
-                                <TableData><code>-</code></TableData>
-                                <TableData><code>true</code></TableData>
-                                <TableData>
-                                    An array of AccordionItems to be rendered inside the Accordian tag.
-                                </TableData>
-                            </TableRow>
-                            <TableRow>
-                                <TableData>Options</TableData>
-                                <TableData><code>string</code></TableData>
-                                <TableData><code>-</code></TableData>
-                                <TableData><code>false</code></TableData>
-                                <TableData>
-                                    A string of component modifiers.
-                                    For a list of all modifiers see <a href="https://getuikit.com/docs/accordion#component-options">UIkit Accordian</a>
-                                </TableData>
-                            </TableRow>
-                        </TableBody>
-                        <TableFoot></TableFoot>
-                    </Table>
-                    <h3>Elements</h3>
-                    <pre>
-                        <code id="elements-usage" className="language-tsx">
-                            {
-`<Accordion options="">
-    <AccordionItem title="String" content="String" />
-<Accordion>`}
-                        </code>
-                    </pre>
-                    <Section padding>
-                        <h3>Basic Usage</h3>
-                        <BasicExample />
-                    </Section>
-                    <Section padding>
-                        <h3>Disable Collapse</h3>
-                        <Flex>
-                        <DisableCollapseExample />
-                        </Flex>
-                    </Section>
-                    <Section padding>
-                        <h3>Expand Multiple</h3>
-                        <ExpandMultipleExample />
-                    </Section>
-                </Article>
-            </Container>
+            <Section style="small">
+                <Container size="small">
+                    <Article title={articleTitle}>
+                        <p>
+                            {articleContent}
+                        </p>
+                        <h3>Properties</h3>
+                        <Table divider size="small">
+                            <TableHead>
+                                <TableRow>
+                                    <TableHeader shrink>Property</TableHeader>
+                                    <TableHeader width="small">Type</TableHeader>
+                                    <TableHeader width="small">Default</TableHeader>
+                                    <TableHeader width="small">Required</TableHeader>
+                                    <TableHeader>Description</TableHeader>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                <TableRow>
+                                    <TableData shrink>Children</TableData>
+                                    <TableData width="small">
+                                        <code>{`<AccordionItem />`}</code>
+                                    </TableData>
+                                    <TableData><code>-</code></TableData>
+                                    <TableData><code>true</code></TableData>
+                                    <TableData>
+                                        An array of AccordionItems to be rendered inside the Accordian tag.
+                                    </TableData>
+                                </TableRow>
+                                <TableRow>
+                                    <TableData>Options</TableData>
+                                    <TableData><code>string</code></TableData>
+                                    <TableData><code>-</code></TableData>
+                                    <TableData><code>false</code></TableData>
+                                    <TableData>
+                                        A string of component modifiers.
+                                        For a list of all modifiers see <a href="https://getuikit.com/docs/accordion#component-options">UIkit Accordian</a>
+                                    </TableData>
+                                </TableRow>
+                            </TableBody>
+                            <TableFoot></TableFoot>
+                        </Table>
+                        <h3>Elements</h3>
+                        <pre>
+                            <code id="elements-usage" className="language-tsx">
+                                {
+    `<Accordion options="">
+        <AccordionItem title="String" content="String" />
+    <Accordion>`}
+                            </code>
+                        </pre>
+                        <Section padding>
+                            <h3>Basic Usage</h3>
+                            <BasicExample />
+                        </Section>
+                        <Section padding>
+                            <h3>Disable Collapse</h3>
+                            <Flex>
+                            <DisableCollapseExample />
+                            </Flex>
+                        </Section>
+                        <Section padding>
+                            <h3>Expand Multiple</h3>
+                            <ExpandMultipleExample />
+                        </Section>
+                    </Article>
+                </Container>
+            </Section>
         );
     }
 }
