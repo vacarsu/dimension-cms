@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { styleClass } from '../../utils/style-class';
-import { inverseClass } from '../../utils/inverse-class';
-import { presserveClass } from '../../utils/preserve-class';
+import * as classNames from 'classnames';
+import { setClassNames } from '../../utils/set-class-names';
 
 declare interface props extends BaseProps {
-  style?: string;
-  preserve?: string;
-  inverse?: string;
+    padding?: boolean;
+    style?: string;
+    preserveColor?: boolean;
 }
 
 
@@ -14,13 +13,19 @@ export class Section extends React.Component<props, any> {
     render() {
         return (
             <div className={`
-                uk-section
-                uk-section-${styleClass(this.props.style)}
-                uk-${inverseClass(this.props.inverse)}
-                ${presserveClass(this.props.preserve)}
+                ${this.setClassNames()}
             `}>
                 {this.props.children}
             </div>
         );
+    }
+
+    private setClassNames(): string {
+        return classNames({
+            [`uk-section`]: this.props.padding,
+            [`uk-section-${this.props.style}`]: !!this.props.style,
+            [`uk-preserve-color`]: this.props.preserveColor,
+            [setClassNames(this.props)]: true
+        })
     }
 }

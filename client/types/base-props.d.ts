@@ -8,4 +8,5 @@ interface BaseProps {
     height?: string;
     width?: string;
     background?: string;
+    position?: string;
 }
