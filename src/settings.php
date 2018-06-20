@@ -6,7 +6,7 @@ return [
 
         // Renderer settings
         'renderer' => [
-            'template_path' => __DIR__ . '/../public/dimension-cms/',
+            'template_path' => __DIR__ . '/../public/',
         ],
 
         // Monolog settings

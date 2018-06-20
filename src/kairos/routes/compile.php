@@ -11,7 +11,7 @@ $app->post('/api/sass/compile', function (Request $request, Response $response, 
     $body = $request->getParsedBody();
     $sassString = $this->sassCompiler->compilePackage($body['packageName']);
     var_dump($sassString);
-    $dumpFile = __DIR__ . '/../../../public/dimension-cms/dist/' . $body['packageName'] . '.min.css';
+    $dumpFile = __DIR__ . '/../../../public/dist/' . $body['packageName'] . '.min.css';
 
     $this->fileSystem->dumpFile($dumpFile, $sassString);
     echo $body['packageName'];

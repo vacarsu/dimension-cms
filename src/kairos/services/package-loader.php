@@ -29,7 +29,7 @@ class PackageLoader
         {
             $content =  $content . "\r\n\r\n" . $file->getContents();
             $packageData = $this->yamlCompiler->yamlToArray($file->getContents());
-            $this->yamlCompiler->writeFile($this->dataDir . 'packages.yml', $content, true);
+            $this->yamlCompiler->writeFile($this->dataDir . 'packages.yml', $content);
         }
 
         return "success";
