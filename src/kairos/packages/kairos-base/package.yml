@@ -1,0 +1,53 @@
+kairos-base:
+  modules:
+    components:
+      - Accordion
+      - Alert
+      - Badge
+      - Breadcrumb
+      - Button
+      - Card
+      - Container
+      - Cover
+      - Dropdown
+      - Flex
+      - Grid
+      - Icon
+      - Image
+      - Labels
+      - Lightbox
+      - Link
+      - List
+      - Margin
+      - Nav
+      - Navbar
+      - Offcanvas
+      - Overlay
+      - Panel
+      - Parallax
+      - Scrollspy
+      - Slideshow
+      - Tab
+      - Table
+    sass:
+      lobal-emphasis-color: '#333'
+      global-color: '#666'
+      global-inverse-color: '#fff'
+      global-muted-background: '#f8f8f8'
+      global-primary-background: '#1e87f0'
+      global-success-background: '#32d296'
+      global-warning-background: '#faa05a'
+      global-danger-background: '#f0506e'
+      global-muted-color: '#999'
+      global-background: '#fff'
+      global-secondary-background: '#222'
+      global-link-color: '#1e87f0'
+      global-link-hover-color: '#0f6ecd'
+      base-ins-background: '#ffd'
+      base-mark-background: '#ffd'
+      global-border: '#e5e5e5'
+      base-selection-background: '#39f'
+      form-select-option-color: '#444'
+      lightbox-background: '#000'
+      lightbox-toolbar-icon-hover-color: '#fff'
+      lightbox-button-hover-color: '#fff'

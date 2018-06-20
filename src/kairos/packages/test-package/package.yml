@@ -1,0 +1,4 @@
+test-package:
+  modules:
+    components: false
+    sass: false
