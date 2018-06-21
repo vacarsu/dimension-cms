@@ -1,34 +1,103 @@
 kairos-base:
+  baseColors: &baseColors
+    - default
+    - primary
+    - secondary
+    - danger
+  backgroundColors: &backgroundColors
+    - default
+    - primary
+    - muted
+    - secondary
+  alertColors: &alertColors
+    - *baseColors
+    - warning
+  buttonColors: &buttonColors
+    - *baseColors
+    - text
+    - link
+  fields:
+    - align-select:
+        options:
+          - left
+          - right
+          - center
+    - button-color-select:
+        options:
+          - *buttonColors
+    - background-color-select:
+        options:
+          - *backgroundColors
+    - height-select:
+        options:
+          - 1-1
+          - small
+          - max-small
+          - medium
+          - max-medium
+          - large
+          - max-large
+    - width-select:
+        options:
+          - 1-1
+          - 1-2
+          - 1-3
+          - 2-3
+          - 1-4
+          - 2-4
+          - 3-4
+          - 1-5
+          - 2-5
+          - 3-5
+          - 1-6
+          - 2-6
+          - 3-6
+          - 4-6
+          - 5-6
   modules:
     components:
-      - Accordion
-      - Alert
-      - Badge
-      - Breadcrumb
-      - Button
-      - Card
-      - Container
-      - Cover
-      - Dropdown
-      - Flex
-      - Grid
-      - Icon
-      - Image
-      - Labels
-      - Lightbox
-      - Link
-      - List
-      - Margin
-      - Nav
-      - Navbar
-      - Offcanvas
-      - Overlay
-      - Panel
-      - Parallax
-      - Scrollspy
-      - Slideshow
-      - Tab
-      - Table
+      - name: Accordion
+        props:
+          - name: classNames
+            type: text
+          - name: style
+            type: css
+          - name: align
+            type: align-select
+          - name: height
+            type: height-select
+          - name: width
+            type: width-select
+          - name: background
+            type: background-color-select
+          - name: position
+      - name: Alert
+      - name: Badge
+      - name: Breadcrumb
+      - name: Button
+      - name: Card
+      - name: Container
+      - name: Cover
+      - name: Dropdown
+      - name: Flex
+      - name: Grid
+      - name: Icon
+      - name: Image
+      - name: Labels
+      - name: Lightbox
+      - name: Link
+      - name: List
+      - name: Margin
+      - name: Nav
+      - name: Navbar
+      - name: Offcanvas
+      - name: Overlay
+      - name: Panel
+      - name: Parallax
+      - name: Scrollspy
+      - name: Slideshow
+      - name: Tab
+      - name: Table
     sass:
       lobal-emphasis-color: '#333'
       global-color: '#666'

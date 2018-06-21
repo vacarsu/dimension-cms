@@ -46,14 +46,21 @@ export class AdminSidebar extends React.Component<props, any> {
                 <Light>
                     <CardBody>
                         <Nav 
-                            preset="default"
+                            preset="primary"
                             accordion={this.props.accordion ? true : false}
                             options={`multiple: ${this.props.multiple ? true : false};`}>
-                            <NavItem type="header">
-                                {this.props.title}
+                            <NavItem>
+                                <NavLink to="/admin/components">Components</NavLink>
                             </NavItem>
-                            <NavItem type="divider" />
-                            {this.props.children}
+                            <NavItem>
+                                <NavLink to="/admin/packages">Packages</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink to="/admin/pages">Pages</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink to="/admin/Layouts">Layouts</NavLink>
+                            </NavItem>
                         </Nav>
                     </CardBody>
                 </Light>

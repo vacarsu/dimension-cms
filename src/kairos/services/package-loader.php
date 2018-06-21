@@ -23,15 +23,25 @@ class PackageLoader
     {
         $content;
         $finder = new Finder();
+        $loadedPackages = $this->yamlCompiler->loadFile($this->dataDir . 'packages.yml');
         $finder->files()->name('package.yml')->in($this->packageDir);
 
         foreach ($finder as $file)
         {
-            $content =  $content . "\r\n\r\n" . $file->getContents();
             $packageData = $this->yamlCompiler->yamlToArray($file->getContents());
-            $this->yamlCompiler->writeFile($this->dataDir . 'packages.yml', $content);
+            if (!$this->determinePackageLoaded($packageData, $loadedPackages))
+            {
+                $content =  $content . "\r\n\r\n" . $file->getContents();
+                $this->yamlCompiler->writeFile($this->dataDir . 'packages.yml', $content);
+            }
         }
 
         return "success";
+    }
+
+    private function determinePackageLoaded($foundPackage, $loadedPackages)
+    {
+        $foundPackageName = key($foundPackage);
+        return $loadedPackages[$foundPackageName] ? true : false;
     }
 }

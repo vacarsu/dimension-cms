@@ -32,7 +32,6 @@ import {
     Flex
 } from 'uikit-react';
 import { AdminSidebar } from './AdminSidebar';
-import { PackageDetailsPage } from './PackageDetailsPage';
 
 export class PackagesPage extends React.Component<any, any> {
     constructor(props) {
@@ -50,10 +49,10 @@ export class PackagesPage extends React.Component<any, any> {
 
     render() {
         return (
-            <Section style={{ marginLeft: '280px', marginRight: '30px' }}>
+            <Section>
                 <Section width="1-1" padding>
                     <Card width="1-1">
-                        <NavbarSticky>
+                        <NavbarSticky style={{ zIndex: '98' }} options="offset: 80;">
                             <CardHeader style={{ backgroundColor: 'white' }}>
                                 <Flex direction="row">
                                     <CardTitle>
@@ -133,24 +132,26 @@ export class PackagesPage extends React.Component<any, any> {
                                                     <Flex>
                                                         <Section width="1-2" align="left" />
                                                         <Section width="1-2">
-                                                            <Container align="right">
-                                                                <Button
-                                                                    size="small"
-                                                                    color="primary"
-                                                                    onClick={this.updateSassVariables.bind(
-                                                                        this,
-                                                                        key,
-                                                                        packages[key].modules.sass
-                                                                    )}>
-                                                                    Save Sass
-                                                                </Button>
-                                                                <Button
-                                                                    size="small"
-                                                                    color="primary"
-                                                                    onClick={this.recompileCSS.bind(this, key)}>
-                                                                    Recompile Sass
-                                                                </Button>
-                                                            </Container>
+                                                            <NavbarSticky style={{ zIndex: '99' }} options="offset: 160">
+                                                                <Container align="right">
+                                                                    <Button
+                                                                        size="small"
+                                                                        color="primary"
+                                                                        onClick={this.updateSassVariables.bind(
+                                                                            this,
+                                                                            key,
+                                                                            packages[key].modules.sass
+                                                                        )}>
+                                                                        Save Sass
+                                                                    </Button>
+                                                                    <Button
+                                                                        size="small"
+                                                                        color="primary"
+                                                                        onClick={this.recompileCSS.bind(this, key)}>
+                                                                        Recompile Sass
+                                                                    </Button>
+                                                                </Container>
+                                                            </NavbarSticky>
                                                         </Section>
                                                     </Flex>
                                                 </ListItem>

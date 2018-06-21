@@ -45,16 +45,11 @@ export class ComponentsPage extends React.Component<any, any> {
 
     render() {
         return (
-            <Grid gutter="medium">
-                <AdminSidebar accordion multiple title="Components">
-                    {this.renderMenu()}
-                </AdminSidebar>
-                <Section size="small">
-                    <Section padding>
-                        <p>Hi</p>
-                    </Section>
+            <Section>
+                <Section padding>
+                    <p>Hi</p>
                 </Section>
-            </Grid>
+            </Section>
         )
     }
 
