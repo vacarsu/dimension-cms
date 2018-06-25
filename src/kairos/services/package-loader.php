@@ -21,27 +21,61 @@ class PackageLoader
 
     public function loadPackageData()
     {
-        $content;
         $finder = new Finder();
         $loadedPackages = $this->yamlCompiler->loadFile($this->dataDir . 'packages.yml');
         $finder->files()->name('package.yml')->in($this->packageDir);
-
         foreach ($finder as $file)
         {
-            $packageData = $this->yamlCompiler->yamlToArray($file->getContents());
-            if (!$this->determinePackageLoaded($packageData, $loadedPackages))
+            $foundPackage = $this->yamlCompiler->yamlToArray($file->getContents());
+            if (!$this->determinePackageLoaded($foundPackage, $loadedPackages))
             {
-                $content =  $content . "\r\n\r\n" . $file->getContents();
-                $this->yamlCompiler->writeFile($this->dataDir . 'packages.yml', $content);
+                $loadedPackages[] = $foundPackage;
+                $this
+                    ->yamlCompiler
+                    ->writeFile(
+                        $this->dataDir . 'packages.yml', "\r\n" . $file->getContents(),
+                        true
+                    );
+                $this->loadPackageModules($foundPackage);
             }
         }
-
-        return "success";
     }
 
     private function determinePackageLoaded($foundPackage, $loadedPackages)
     {
         $foundPackageName = key($foundPackage);
-        return $loadedPackages[$foundPackageName] ? true : false;
+        $foundPackageVersion = $foundPackage[$foundPackageName]['version'];
+        $loadedPackageVersion = $loadedPackages[$foundPackageName]['version'];
+        var_dump($foundPackageName);
+        var_dump($foundPackageVersion);
+        var_dump($loadedPackageVersion);
+        if ($loadedPackages[$foundPackageName] && $loadedPackageVersion === $foundPackageVersion)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private function loadPackageModules($foundPackage)
+    {
+        $packageName = key($foundPackage);
+        $finder = new Finder();
+        $finder->files()->name('*.yml')->in($this->packageDir . $packageName . '/data');
+
+        foreach ($finder as $file)
+        {
+            $moduleData = $this->yamlCompiler->yamlToArray($file->getContents());
+            $moduleFileName = $file->getFilename();
+            $this->fileSystem->mkdir($this->dataDir . $packageName);
+            $this
+                ->yamlCompiler
+                ->writeFile(
+                    $this->dataDir . $packageName . '/' . $moduleFileName, "\r\n" . $file->getContents(),
+                    false
+                );
+        }
     }
 }

@@ -1,0 +1,4 @@
+routes:
+  - /admin/:
+      exact: false
+      component: AdminPage

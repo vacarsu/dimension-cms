@@ -11,9 +11,9 @@ if (PHP_SAPI == 'cli-server') {
 
 require __DIR__ . '/../vendor/autoload.php';
 
-include __DIR__.'/../src/Kairos/Services/sass-compiler.php';
-include __DIR__.'/../src/Kairos/Services/yaml-compiler.php';
-include __DIR__.'/../src/Kairos/Services/package-loader.php';
+include __DIR__ . '/../src/Kairos/Services/sass-compiler.php';
+include __DIR__ . '/../src/Kairos/Services/yaml-compiler.php';
+include __DIR__ . '/../src/Kairos/Services/package-loader.php';
 
 session_start();
 

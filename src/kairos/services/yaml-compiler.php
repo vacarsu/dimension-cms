@@ -18,9 +18,12 @@ class YamlCompiler
         return $this->yaml->parseFile($path);
     }
 
-    public function writeFile($path, $yamlString)
+    public function writeFile($path, $yamlString, $append)
     {
-        file_put_contents($path, $yamlString);
+        $append ? 
+            file_put_contents($path, $yamlString, FILE_APPEND)
+            :
+            file_put_contents($path, $yamlString);
     }
 
     public function arrayToYaml($array)

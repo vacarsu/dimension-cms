@@ -14,6 +14,14 @@ $app->get('/api/packages', function (Request $request, Response $response, array
     return json_encode($data, true);
 });
 
+$app->get('/api/packages/{packageName}/{moduleName}', function (Request $request, Response $response, array $args) {
+    $this->logger->info("Slim-Skeleton '/api/packages/{packageName}/{moduleName}' route");
+    $dataDir = $this->get('settings')['directories']['dataDirectory'];
+    $data = Yaml::parseFile($dataDir . $args['packageName'] . '/' . $args['moduleName'] . '.yml');
+
+    return json_encode($data, true);
+});
+
 $app->get('/api/packages/{packageName}', function (Request $request, Response $response, array $args) {
     $this->logger->info("Slim-Skeleton '/api/package/{packageName}' route");
     $dataDir = $this->get('settings')['directories']['dataDirectory'];
@@ -26,5 +34,5 @@ $app->get('/api/packages/{packageName}', function (Request $request, Response $r
 $app->post('/api/packages/reload', function (Request $request, Response $response, array $args) {
     $this->logger->info("Slim-Skeleton '/api/packages/reload' route");
     $data = $this->packageLoader->loadPackageData();
-    return json_encode($data, true);
+    // return json_encode($data, true);
 });

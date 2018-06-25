@@ -10,7 +10,6 @@ $app->post('/api/sass/compile', function (Request $request, Response $response, 
 
     $body = $request->getParsedBody();
     $sassString = $this->sassCompiler->compilePackage($body['packageName']);
-    var_dump($sassString);
     $dumpFile = __DIR__ . '/../../../public/dist/' . $body['packageName'] . '.min.css';
 
     $this->fileSystem->dumpFile($dumpFile, $sassString);
@@ -21,7 +20,6 @@ $app->post('/api/sass/variables', function (Request $request, Response $response
     $this->logger->info("Slim-Skeleton '/api/sass/variables' route");
 
     $body = $request->getParsedBody();
-    var_dump($body['packageName']);
     $dataDir = $this->get('settings')['directories']['dataDirectory'];
     $packagesData = $this->yamlCompiler->loadFile($dataDir . 'packages.yml');
 
