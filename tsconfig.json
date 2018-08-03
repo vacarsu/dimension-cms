@@ -25,6 +25,8 @@
     ],
     "files": [
         "types/base-props.d.ts",
+        "node_modules/uikit-react/globals.d.ts",
+        "node_modules/uikit-react/index.d.ts",
         "node_modules/es6-promise/es6-promise.d.ts"
     ]
 }

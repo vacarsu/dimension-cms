@@ -46,9 +46,7 @@ class PackageLoader
         $foundPackageName = key($foundPackage);
         $foundPackageVersion = $foundPackage[$foundPackageName]['version'];
         $loadedPackageVersion = $loadedPackages[$foundPackageName]['version'];
-        var_dump($foundPackageName);
-        var_dump($foundPackageVersion);
-        var_dump($loadedPackageVersion);
+
         if ($loadedPackages[$foundPackageName] && $loadedPackageVersion === $foundPackageVersion)
         {
             return true;

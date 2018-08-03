@@ -1,9 +1,9 @@
-import {
-    Accordion,
-    AccordionItem
-} from 'uikit-react';
+import { KaiAccordion } from './Accordion';
+import { KaiAlert } from './Alert';
+import { KaiBadge } from './Badge';
 
 export const componentRegistry = {
-    Accordion,
-    AccordionItem
+    Accordion: KaiAccordion,
+    Alert: KaiAlert,
+    Badge: KaiBadge
 }

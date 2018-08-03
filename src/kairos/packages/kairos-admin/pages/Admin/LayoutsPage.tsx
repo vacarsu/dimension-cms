@@ -31,23 +31,39 @@ export class LayoutsPage extends React.Component<any, any> {
         this.state = { layouts: null };
     }
 
+    componentDidMount() {
+        this.fetchLayouts();
+    }
+
     render() {
         return (
             <Section padding>
                 <Grid gutter="large" match>
-                    <Section>
-                        <Panel className="uk-placeholder">Hi</Panel>
-                    </Section>
-                    <Section>
-                        <Panel className="uk-placeholder">Hi</Panel>
-                    </Section>
+                    {this.state.layouts ? this.renderLayoutList() : null}
                     <Section>
                         <Panel className="uk-placeholder">
-                            <NavLink to="/admin/layout-editor/new"><Icon options="icon: plus; ratio: 2;" /></NavLink>
+                            <NavLink to="/admin/layout-editor/layout/new"><Icon options="icon: plus; ratio: 2;" /></NavLink>
                         </Panel>
                     </Section>
                 </Grid>
             </Section>
         )
+    }
+
+    private renderLayoutList() {
+        return this.state.layouts.map((layout, index) => (
+            <Section>
+                <Panel className="uk-placeholder">
+                    <NavLink to={`/admin/layout-editor/layout/${layout.name}`}>{layout.name}</NavLink>
+                </Panel>
+            </Section>
+        ));
+    }
+
+    private fetchLayouts() {
+        fetch('/api/layouts')
+        .then(res => res.json())
+        .then(res => this.setState({ layouts: res }, () => console.log(this.state.layouts)))
+        .catch(err => console.error(err));
     }
 }

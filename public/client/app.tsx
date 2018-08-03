@@ -68,8 +68,8 @@ class App extends React.Component<any, any> {
         let modules = []
         for (let key in packages) {
             for (let mKey in packages[key]['modules']) {
-                let module = await this.fetchPackageModule(key, mKey)
-                modules.push({ module, packageName: key });
+                let module = await this.fetchPackageModule(key, mKey);
+                modules.push({ module, packageName: key, type: mKey });
             }
         }
 
@@ -78,6 +78,7 @@ class App extends React.Component<any, any> {
             modules: modules,
             isLoading: false
         });
+        localStorage.setItem('modules', JSON.stringify(modules));
         this.importRoutes();
     }
 

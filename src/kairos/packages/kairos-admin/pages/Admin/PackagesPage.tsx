@@ -78,17 +78,9 @@ export class PackagesPage extends React.Component<any, any> {
     }
 
     private fetchPackages() {
-        return fetch('/api/packages')
-            .then((res) => res.json())
-            .then(res => {
-                console.log(res);
-                this.setState({
-                    packages: res
-                });
-            })
-            .catch((err) => {
-                console.error(err);
-            });
+        let packages = JSON.parse(localStorage.getItem('packages'));
+        let modules = JSON.parse(localStorage.getItem('modules'));
+        this.setState({ packages, modules });
     }
 
     private reloadPackages() {
@@ -103,13 +95,13 @@ export class PackagesPage extends React.Component<any, any> {
         })
     }
 
-    private updateSassVariables(packageName, sass) {
+    private updateSassVariables(packageName, sassVariables) {
         return fetch('/api/sass/variables', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 packageName,
-                sass
+                sassVariables
             })
         })
     }
@@ -122,45 +114,7 @@ export class PackagesPage extends React.Component<any, any> {
                     <NavItem parent key={key}>
                         <Link href="#">{key}</Link>
                         <Nav child>
-                            <NavItem>
-                                <List width="1-1">
-                                    {packages[key].modules.sass ?
-                                    <ListItem>
-                                        <Section>
-                                            <List>
-                                                <ListItem>
-                                                    <Flex>
-                                                        <Section width="1-2" align="left" />
-                                                        <Section width="1-2">
-                                                            <NavbarSticky style={{ zIndex: '99' }} options="offset: 160">
-                                                                <Container align="right">
-                                                                    <Button
-                                                                        size="small"
-                                                                        color="primary"
-                                                                        onClick={this.updateSassVariables.bind(
-                                                                            this,
-                                                                            key,
-                                                                            packages[key].modules.sass
-                                                                        )}>
-                                                                        Save Sass
-                                                                    </Button>
-                                                                    <Button
-                                                                        size="small"
-                                                                        color="primary"
-                                                                        onClick={this.recompileCSS.bind(this, key)}>
-                                                                        Recompile Sass
-                                                                    </Button>
-                                                                </Container>
-                                                            </NavbarSticky>
-                                                        </Section>
-                                                    </Flex>
-                                                </ListItem>
-                                                {this.renderSassList(key, packages[key].modules.sass)}
-                                            </List>
-                                        </Section>
-                                    </ListItem> : null}
-                                </List>
-                            </NavItem>
+                            {this.renderModuleList(key)}
                         </Nav>
                     </NavItem>
                     <NavItem type="divider" />
@@ -169,8 +123,63 @@ export class PackagesPage extends React.Component<any, any> {
         }
     }
 
-    private renderSassList(packageName, sass) {
-        return Object.keys(sass).map(key => (
+    private renderModuleList(packageName) {
+        return this.state.modules.map((module, moduleIndex) => {
+            if (module.packageName === packageName) {
+                return (
+                    <NavItem key={moduleIndex}>
+                        <List style={{ width: '100%' }}>
+                            {module.module.type === 'sass' ? 
+                                this.renderSassModule(module.module, packageName, moduleIndex)
+                                : null}
+                        </List>
+                    </NavItem>
+                );
+            }
+        });
+    }
+
+    private renderSassModule(module, packageName, moduleIndex) {
+        return (
+            <ListItem>
+                <Section>
+                    <List>
+                        <ListItem>
+                            <Flex>
+                                <Section width="1-2" align="left" />
+                                <Section width="1-2">
+                                    <NavbarSticky style={{ zIndex: '99' }} options="offset: 160">
+                                        <Container align="right">
+                                            <Button
+                                                size="small"
+                                                color="primary"
+                                                onClick={this.updateSassVariables.bind(
+                                                    this,
+                                                    packageName,
+                                                    module.variables
+                                                )}>
+                                                Save Sass
+                                            </Button>
+                                            <Button
+                                                size="small"
+                                                color="primary"
+                                                onClick={this.recompileCSS.bind(this, packageName)}>
+                                                Recompile Sass
+                                            </Button>
+                                        </Container>
+                                    </NavbarSticky>
+                                </Section>
+                            </Flex>
+                        </ListItem>
+                        {this.renderSassList(module, packageName, moduleIndex)}
+                    </List>
+                </Section>
+            </ListItem>
+        );
+    }
+
+    private renderSassList(module, packageName, moduleIndex) {
+        return Object.keys(module.variables).map(key => (
             <ListItem key={key}>
                 <Flex>
                     <Section width="1-2" align="left">{key}</Section>
@@ -178,8 +187,8 @@ export class PackagesPage extends React.Component<any, any> {
                         <Container align="right">
                             <Container className="uk-inline">
                                 <Badge style={{
-                                    border: '1px solid black', backgroundColor: sass[key]
-                                }}/>
+                                    border: '1px solid black', backgroundColor: module.variables[key]
+                                }} count={null}/>
                                 <div
                                     style={{ width: '200px' }}
                                     uk-drop="
@@ -187,9 +196,9 @@ export class PackagesPage extends React.Component<any, any> {
                                         boundary: .uk-inline;
                                         pos: left-center;">
                                     <SketchPicker
-                                        color={this.state.packages[packageName].modules.sass[key]}
+                                        color={module[key]}
                                         onChangeComplete={this.updateVariableColor.bind(
-                                            this, packageName, key
+                                            this, module, key, moduleIndex
                                         )}
                                     />
                                 </div>
@@ -201,12 +210,11 @@ export class PackagesPage extends React.Component<any, any> {
         ));
     }
 
-    private updateVariableColor(packageName, key, color, event) {
-        let packages = this.state.packages;
-        packages[packageName].modules.sass[key] = color.hex;
-        console.log([packageName, key, color, event])
+    private updateVariableColor(module, key, moduleIndex, color, event) {
+        let modules = this.state.modules
+        modules[moduleIndex].module.variables[key] = color.hex;
         this.setState({
-            packages
-        }, () => { console.log(this.state.packages[packageName][key]) });
+            modules
+        }, () => console.log(modules[moduleIndex].module.variables[key]));
     }
 }

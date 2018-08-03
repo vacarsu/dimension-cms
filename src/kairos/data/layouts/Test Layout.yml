@@ -1,0 +1,37 @@
+name: 'Test Layout'
+containers:
+    -
+        children:
+            -
+                name: Alert
+                props:
+                    className:
+                        type: text
+                        default: ''
+                    style:
+                        type: textarea
+                        parseJson: true
+                        default:
+                            width: 100%
+                    color:
+                        type: select
+                        options:
+                            - default
+                            - primary
+                            - secondary
+                            - danger
+                            - warning
+                        default: default
+                    closable:
+                        type: checkbox
+                        default: false
+                    content:
+                        type: text
+                        default: 'alert content'
+                settings:
+                    className: ''
+                    style:
+                        width: 22.408%
+                    color: default
+                    closable: false
+                    content: 'alert content'

@@ -26,6 +26,7 @@ import {
 import { AdminSidebar } from './AdminSidebar';
 import { ComponentsPage } from './ComponentsPage';
 import { PackagesPage } from './PackagesPage';
+import { PagesPage } from './PagesPage';
 import { LayoutEditorPage } from './LayoutEditorPage';
 import { LayoutsPage } from './LayoutsPage';
 import { MenuContext } from './../../context/MenuContext';
@@ -86,8 +87,9 @@ export class AdminPage extends React.Component<any, any> {
                         {console.log(value)}
                         <Route path={`${this.props.match.url}/components`} component={ComponentsPage} />
                         <Route path={`${this.props.match.url}/packages`} component={PackagesPage} />
+                        <Route path={`${this.props.match.url}/pages`} component={PagesPage} />
                         <Route path={`${this.props.match.url}/layouts`} component={LayoutsPage} />
-                        <Route path={`${this.props.match.url}/layout-editor/:id`} component={LayoutEditorPage} />
+                        <Route path={`${this.props.match.url}/layout-editor/:mode/:id`} component={LayoutEditorPage} />
                     </Container>)}
                 </MenuContext.Consumer>
                 </MenuContext.Provider>

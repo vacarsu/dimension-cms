@@ -23,16 +23,15 @@ class SassCompiler
 
     public function getPackageVariables($packageName)
     {
-        $packages = $this->yamlCompiler->loadFile($this->dataDir . 'packages.yml');
-        return $packages[$packageName]['modules']['sass'];
+        $sassModuleData = $this->yamlCompiler->loadFile($this->dataDir . $packageName . '/sass.yml');
+        return $sassModuleData['variables'];
     }
 
     public function compilePackage($packageName)
     {
         $packageVariables = $this->getPackageVariables($packageName);
-        $this->compiler->setImportPaths($this->packageDir . $packageName . '/scss');
+        $this->compiler->setImportPaths($this->packageDir . $packageName . '/sass');
         $this->compiler->setVariables($packageVariables);
-        var_dump($this->packageDir . $packageName . '/scss');
         return $this->compiler->compile('@import "index.scss";');
     }
 }

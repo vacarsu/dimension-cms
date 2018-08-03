@@ -1,4 +1,4 @@
-
+type: components
 baseColors: &baseColors
   - default
   - primary
@@ -58,24 +58,87 @@ fields:
         - 3-6
         - 4-6
         - 5-6
+  - position-select:
+      options:
+        - top
+        - left
+        - right
+        - bottom
+        - top-left
+        - top-center
+        - top-right
+        - center
+        - center-left
+        - center-right
+        - bottom-left
+        - bottom-center
+        - bottom-right
+        - center-left-out
+        - center-right-out
+        - cover
+        - small
+        - medium
+        - large
+        - relative
+        - absolute
+        - fixed
+        - z-index
 components:
   - name: Accordion
     props:
-      - name: classNames
+      className:
         type: text
-      - name: style
-        type: css
-      - name: align
-        type: align-select
-      - name: height
-        type: height-select
-      - name: width
-        type: width-select
-      - name: background
-        type: background-color-select
-      - name: position
+        default: ""
+      style:
+        type: textarea
+        parseJson: true
+        default:
+          width: 100%
+      items:
+        type: child
+        props:
+          title:
+            type: text
+            default: input title
+          content:
+            type: textarea
+            default: input content
+
   - name: Alert
+    props:
+      className:
+        type: text
+        default: ""
+      style:
+        type: textarea
+        parseJson: true
+        default:
+          width: 100%
+      color:
+        type: select
+        options: *alertColors
+        default: default
+      closable:
+        type: checkbox
+        default: false
+      content:
+        type: text
+        default: alert content
+
   - name: Badge
+    props:
+      className:
+        type: text
+        default: ""
+      style:
+        type: textarea
+        parseJson: true
+        default:
+          width: 100%
+      count:
+        type: number
+        default: 0
+
   - name: Breadcrumb
   - name: Button
   - name: Card

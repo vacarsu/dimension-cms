@@ -21,11 +21,11 @@ $app->post('/api/sass/variables', function (Request $request, Response $response
 
     $body = $request->getParsedBody();
     $dataDir = $this->get('settings')['directories']['dataDirectory'];
-    $packagesData = $this->yamlCompiler->loadFile($dataDir . 'packages.yml');
+    $sassModuleData = $this->yamlCompiler->loadFile($dataDir . $body['packageName'] . '/sass.yml');
 
-    $packagesData[$body['packageName']]['modules']['sass'] = $body['sass'];
+    $sassModuleData['variables'] = $body['sassVariables'];
 
-    $packagesYaml = $this->yamlCompiler->arrayToYaml($packagesData);
+    $sassYaml = $this->yamlCompiler->arrayToYaml($sassModuleData);
 
-    $this->yamlCompiler->writeFile($dataDir . 'packages.yml', $packagesYaml);
+    $this->yamlCompiler->writeFile($dataDir . $body['packageName'] . '/sass.yml', $sassYaml, false);
 });

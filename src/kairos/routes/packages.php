@@ -34,5 +34,5 @@ $app->get('/api/packages/{packageName}', function (Request $request, Response $r
 $app->post('/api/packages/reload', function (Request $request, Response $response, array $args) {
     $this->logger->info("Slim-Skeleton '/api/packages/reload' route");
     $data = $this->packageLoader->loadPackageData();
-    // return json_encode($data, true);
+    return json_encode($data, true);
 });

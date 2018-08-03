@@ -57,10 +57,35 @@ fields:
         - 3-6
         - 4-6
         - 5-6
+  - position-select:
+      options:
+        - top
+        - left
+        - right
+        - bottom
+        - top-left
+        - top-center
+        - top-right
+        - center
+        - center-left
+        - center-right
+        - bottom-left
+        - bottom-center
+        - bottom-right
+        - center-left-out
+        - center-right-out
+        - cover
+        - small
+        - medium
+        - large
+        - relative
+        - absolute
+        - fixed
+        - z-index
 components:
   - name: Accordion
     props:
-      - name: classNames
+      - name: className
         type: text
       - name: style
         type: css
@@ -73,6 +98,7 @@ components:
       - name: background
         type: background-color-select
       - name: position
+        type: position-select
   - name: Alert
   - name: Badge
   - name: Breadcrumb
